@@ -3,19 +3,19 @@ import com.unfbx.chatgpt.entity.chat.ChatCompletion;
 import com.unfbx.chatgpt.entity.chat.ChatCompletionResponse;
 import com.unfbx.chatgpt.entity.chat.Message;
 import com.unfbx.chatgpt.function.KeyRandomStrategy;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.util.PDFTextStripper;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.jacoco.core.analysis.*;
 public class test {
     static ArrayList<String> history = new ArrayList<>();
     public static void main(String[] args) {
@@ -74,7 +74,7 @@ public class test {
         PDDocument document = null;
         try {
             is = new FileInputStream(filePath);
-            PDFParser parser = new PDFParser(is);
+            PDFParser parser = new PDFParser(new RandomAccessBufferedFileInputStream(is));
             parser.parse();
             document = parser.getPDDocument();
             PDFTextStripper stripper = new PDFTextStripper();
@@ -102,7 +102,7 @@ public class test {
     }
 
     public static void run_cmd(String strcmd) {
-//
+
         Runtime rt = Runtime.getRuntime(); //Runtime.getRuntime()返回当前应用程序的Runtime对象
         Process ps = null;  //Process可以控制该子进程的执行或获取该子进程的信息。
         try {
