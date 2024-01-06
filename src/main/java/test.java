@@ -6,6 +6,7 @@ import com.unfbx.chatgpt.function.KeyRandomStrategy;
 import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,9 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
-
-import org.apache.pdfbox.text.PDFTextStripper;
-import org.jacoco.core.analysis.*;
 public class test {
     static ArrayList<String> history = new ArrayList<>();
     public static void main(String[] args) {

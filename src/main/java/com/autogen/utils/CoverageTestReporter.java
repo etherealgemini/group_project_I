@@ -12,7 +12,7 @@ import org.jacoco.report.html.HTMLFormatter;
 import java.io.File;
 import java.io.IOException;
 
-public class CoverageTest {
+public class CoverageTestReporter {
 
     /**
      * clsss的类目录
@@ -32,23 +32,25 @@ public class CoverageTest {
      */
     private File reportDirectory;
 
-    public CoverageTest(File classesDirectory, File sourceDirectory, File executionDataFile, File reportDirectory) {
+    public CoverageTestReporter(File classesDirectory, File sourceDirectory, File executionDataFile, File reportDirectory) {
         this.classesDirectory = classesDirectory;
         this.sourceDirectory = sourceDirectory;
         this.executionDataFile = executionDataFile;
         this.reportDirectory = reportDirectory;
     }
 
+
+
     public void test(String path) {
         try {
-            String projectDirectory = "D:\\IdeaProjects\\base\\base-service\\application";
+//            String projectDirectory = "D:\\IdeaProjects\\base\\base-service\\application";
             //目录下必须包含源码编译过的class文件,用来统计覆盖率。所以这里用server打出的jar包地址即可,运行的jar或者Class目录
-            File classesDirectory = new File(projectDirectory, "target\\classes\\com");
-            File sourceDirectory = new File(projectDirectory, "src\\main\\java");
+//            File classesDirectory = new File(projectDirectory, "target\\classes\\com");
+//            File sourceDirectory = new File(projectDirectory, "src\\main\\java");
             //覆盖率的exec文件地址
             File executionDataFile = new File("D:\\jacoco\\jacoco-demo.exec");
             //要保存报告的地址
-            File reportDirectory = new File("D:\\jacoco", "coveragereport");
+//            File reportDirectory = new File("D:\\jacoco", "coveragereport");
             //解析exec
             ExecFileLoader execFileLoader = loadExecutionData(executionDataFile);
             //对比exec和class类，生成覆盖数据
