@@ -3,6 +3,7 @@ package com.autogen.utils;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,40 +17,22 @@ import org.jacoco.core.instr.Instrumenter;
 import org.jacoco.core.runtime.IRuntime;
 import org.jacoco.core.runtime.LoggerRuntime;
 import org.jacoco.core.runtime.RuntimeData;
+import temp.TargetTester;
+import temp.TestTarget;
 
 /**
- * Example usage of the JaCoCo core API. In this tutorial a single target class
- * will be instrumented and executed. Finally the coverage information will be
- * dumped.
+ * A single target class will be instrumented and executed. Finally the coverage information will be
+ * dumped. To analyze the coverage of test, you need to load both the target and test class,
+ * then execute the test class and analyze the target coverage.
  */
 public final class CoverageTester {
-
-    /**
-     * The test target we want to see code coverage for.
-     */
-    public static class TestTarget implements Runnable {
-
-        public void run() {
-            isPrime(7);
-        }
-
-        private boolean isPrime(final int n) {
-            for (int i = 2; i * i <= n; i++) {
-                if ((n ^ i) == 0) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-    }
 
     /**
      * A class loader that loads classes from in-memory data.
      */
     public static class MemoryClassLoader extends ClassLoader {
 
-        private final Map<String, byte[]> definitions = new HashMap<String, byte[]>();
+        private final Map<String, byte[]> definitions = new HashMap<>();
 
         /**
          * Add a in-memory representation of a class.
@@ -94,8 +77,13 @@ public final class CoverageTester {
      *             in case of errors
      */
     public void execute() throws Exception {
-        final String targetName = TestTarget.class.getName();
+        String testName = TargetTester.class.getName();
+        String targetName = TestTarget.class.getName();
 
+        execute(testName, targetName);
+    }
+
+    public void execute(String testName, String targetName) throws Exception {
         // For instrumentation and runtime we need a IRuntime instance
         // to collect execution data:
         final IRuntime runtime = new LoggerRuntime();
@@ -114,13 +102,23 @@ public final class CoverageTester {
 
         // In this tutorial we use a special class loader to directly load the
         // instrumented class definition from a byte[] instances.
+
+
         final MemoryClassLoader memoryClassLoader = new MemoryClassLoader();
         memoryClassLoader.addDefinition(targetName, instrumented);
+        memoryClassLoader.addDefinition(testName,instr.instrument(getTargetClass(testName), testName));
         final Class<?> targetClass = memoryClassLoader.loadClass(targetName);
+        final Class<?> tester = memoryClassLoader.loadClass(testName);
 
         // Here we execute our test target class through its Runnable interface:
-        final Runnable targetInstance = (Runnable) targetClass.newInstance();
-        targetInstance.run();
+
+        Method[] methods = tester.getMethods();
+        Object o = tester.newInstance();
+        for (Method m : methods){
+            if(m.getName().contains("test"))
+                m.invoke(o);
+        }
+
 
         // At the end of test execution we collect execution data and shutdown
         // the runtime:
