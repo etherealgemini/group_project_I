@@ -1,18 +1,18 @@
 package com.autogen.service;
 
-import com.autogen.utils.CoverageTestReporter;
-import jdk.jshell.spi.ExecutionControl;
+import com.autogen.model.Code;
+import com.autogen.utils.CoverageTester;
 
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EvaluateService {
 
-    public void evaluateTest(int type,String path){
+    private final CoverageTester coverageTester = new CoverageTester(System.out,new HashMap<>());
+    public void evaluateTest(int type,String path) throws Exception {
         switch (type){
             case 0:
-                CoverageTestReporter covTest = new CoverageTestReporter(new File(path), new File("./src/main/java"),
-                        new File(path+"/execData"), new File(path+"/report"));
-                covTest.test(path);
+                coverageTester.execute("\\data\\targets","\\data\\tests");
                 break;
             case 1:
                 evaluateTestMutation(path);
@@ -29,12 +29,22 @@ public class EvaluateService {
         }
     }
 
-    public String[] analyseResult(String path) {
-        try{
-            throw new Exception();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+    public Code analyseResult(int type) {
+        switch (type){
+            case 0:{
+                Map<String,Double> result = coverageTester.getResultMap();
+                if(result.isEmpty()){
+                    return Code.EVALUATION_ANALYZE_ERROR;
+                }
+                if(result.get("lines")<-1.0){
+                    return Code.WORSE_COVERAGE_LINE;
+                }
+                return Code.EVALUATION_PASS;
+            }
+            default:
+                break;
         }
+        return Code.EVALUATION_ANALYZE_ERROR;
     }
+
 }

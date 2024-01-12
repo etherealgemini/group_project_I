@@ -3,9 +3,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 public class temp {
+    private final HashMap<String, Double> map = new HashMap<>();
     public static void main(String[] args) {
+        temp a = new temp();
+        a.put();
+        System.out.println(a.map);
+    }
+
+    private void put(){
+        map.put("a",0.1);
+    }
+
+    private static void temp1() {
         String a = "```java\n" +
                 "public class AddNumbers {\n" +
                 "    public static void main(String[] args) {\n" +

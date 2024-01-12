@@ -1,12 +1,13 @@
 
 package com.autogen.utils;
 
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import java.nio.file.Files;
+import java.util.*;
 
+import com.autogen.controller.EvaluationController;
+import lombok.extern.slf4j.Slf4j;
 import org.jacoco.core.analysis.Analyzer;
 import org.jacoco.core.analysis.CoverageBuilder;
 import org.jacoco.core.analysis.IClassCoverage;
@@ -17,58 +18,42 @@ import org.jacoco.core.instr.Instrumenter;
 import org.jacoco.core.runtime.IRuntime;
 import org.jacoco.core.runtime.LoggerRuntime;
 import org.jacoco.core.runtime.RuntimeData;
-import temp.TargetTester;
-import temp.TestTarget;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
  * A single target class will be instrumented and executed. Finally the coverage information will be
  * dumped. To analyze the coverage of test, you need to load both the target and test class,
  * then execute the test class and analyze the target coverage.
  */
+@Slf4j
 public final class CoverageTester {
 
-    /**
-     * A class loader that loads classes from in-memory data.
-     */
-    public static class MemoryClassLoader extends ClassLoader {
-
-        private final Map<String, byte[]> definitions = new HashMap<>();
-
-        /**
-         * Add a in-memory representation of a class.
-         *
-         * @param name
-         *            name of the class
-         * @param bytes
-         *            class definition
-         */
-        public void addDefinition(final String name, final byte[] bytes) {
-            definitions.put(name, bytes);
-        }
-
-        @Override
-        protected Class<?> loadClass(final String name, final boolean resolve)
-                throws ClassNotFoundException {
-            final byte[] bytes = definitions.get(name);
-            if (bytes != null) {
-                return defineClass(name, bytes, 0, bytes.length);
-            }
-            return super.loadClass(name, resolve);
-        }
-
-    }
-
+    private static final Logger logger = LoggerFactory.getLogger(EvaluationController.class);
     private final PrintStream out;
+    private final HashMap<String,Double> resultMap;
+    private boolean logging = true;
 
     /**
      * Creates a new example instance printing to the given stream.
      *
      * @param out
      *            stream for outputs
+     * @param resultMap
+     *            execute result dictionary, contains:
+     *            "instructions","branches","lines","methods","complexity"
+     *
      */
-    public CoverageTester(final PrintStream out) {
+    public CoverageTester(final PrintStream out,final HashMap<String,Double> resultMap) {
         this.out = out;
+        this.resultMap = resultMap;
     }
+    public CoverageTester(final PrintStream out,final HashMap<String,Double> resultMap, boolean logging) {
+        this(out, resultMap);
+        this.logging = logging;
+    }
+
 
     /**
      * Run this example.
@@ -76,24 +61,21 @@ public final class CoverageTester {
      * @throws Exception
      *             in case of errors
      */
-    public void execute() throws Exception {
-        String testName = TargetTester.class.getName();
-        String targetName = TestTarget.class.getName();
+    public void execute(String targetPath,String testPath) throws Exception {
 
-        execute(testName, targetName);
-    }
 
-    public void execute(String testName, String targetName) throws Exception {
+        FileMemoryCoCoClassLoader CoCoClassLoader = new FileMemoryCoCoClassLoader();
+        CoCoClassLoader.load(testPath,true);
+        CoCoClassLoader.load(targetPath,false);
+
         // For instrumentation and runtime we need a IRuntime instance
         // to collect execution data:
+
         final IRuntime runtime = new LoggerRuntime();
 
         // The Instrumenter creates a modified version of our test target class
         // that contains additional probes for execution data recording:
         final Instrumenter instr = new Instrumenter(runtime);
-        InputStream original = getTargetClass(targetName);
-        final byte[] instrumented = instr.instrument(original, targetName);
-        original.close();
 
         // Now we're ready to run our instrumented class and need to startup the
         // runtime first:
@@ -103,22 +85,33 @@ public final class CoverageTester {
         // In this tutorial we use a special class loader to directly load the
         // instrumented class definition from a byte[] instances.
 
-
-        final MemoryClassLoader memoryClassLoader = new MemoryClassLoader();
-        memoryClassLoader.addDefinition(targetName, instrumented);
-        memoryClassLoader.addDefinition(testName,instr.instrument(getTargetClass(testName), testName));
-        final Class<?> targetClass = memoryClassLoader.loadClass(targetName);
-        final Class<?> tester = memoryClassLoader.loadClass(testName);
-
-        // Here we execute our test target class through its Runnable interface:
-
-        Method[] methods = tester.getMethods();
-        Object o = tester.newInstance();
-        for (Method m : methods){
-            if(m.getName().contains("test"))
-                m.invoke(o);
+        for(String className:CoCoClassLoader.getTargetNames()){
+            CoCoClassLoader.addDefinition(className,
+                    instr.instrument(CoCoClassLoader.getOriginClassByte(className),className),false
+            );
         }
 
+        for(String className: CoCoClassLoader.getTestsNames()){
+            CoCoClassLoader.addDefinition(className,
+                    instr.instrument(CoCoClassLoader.getOriginClassByte(className),className),true
+            );
+        }
+
+        // Here we execute our test target class by reflection:
+
+        for(String className: CoCoClassLoader.getTestsNames()){
+            Class<?> test = CoCoClassLoader.loadClass(className);
+            Object testO = test.newInstance();
+            Method[] testMethods = test.getDeclaredMethods();
+            for(Method mo:testMethods){
+                if(Arrays.stream(mo.getDeclaredAnnotations()).anyMatch(annotation -> {
+                    System.out.println(annotation);
+                    return annotation.toString().contains("Test");
+                })){
+                    mo.invoke(testO);
+                }
+            }
+        }
 
         // At the end of test execution we collect execution data and shutdown
         // the runtime:
@@ -131,19 +124,20 @@ public final class CoverageTester {
         // information:
         final CoverageBuilder coverageBuilder = new CoverageBuilder();
         final Analyzer analyzer = new Analyzer(executionData, coverageBuilder);
-        original = getTargetClass(targetName);
-        analyzer.analyzeClass(original, targetName);
-        original.close();
+
+        for(String className:CoCoClassLoader.getTargetNames()){
+            analyzer.analyzeClass(CoCoClassLoader.getOriginClassByte(className),className);
+        }
 
         // Let's dump some metrics and line coverage information:
         for (final IClassCoverage cc : coverageBuilder.getClasses()) {
             out.printf("Coverage of class %s%n", cc.getName());
 
-            printCounter("instructions", cc.getInstructionCounter());
-            printCounter("branches", cc.getBranchCounter());
-            printCounter("lines", cc.getLineCounter());
-            printCounter("methods", cc.getMethodCounter());
-            printCounter("complexity", cc.getComplexityCounter());
+            printCounter("instructions", cc.getInstructionCounter(),resultMap);
+            printCounter("branches", cc.getBranchCounter(),resultMap);
+            printCounter("lines", cc.getLineCounter(),resultMap);
+            printCounter("methods", cc.getMethodCounter(),resultMap);
+            printCounter("complexity", cc.getComplexityCounter(),resultMap);
 
             for (int i = cc.getFirstLine(); i <= cc.getLastLine(); i++) {
                 out.printf("Line %s: %s%n", Integer.valueOf(i),
@@ -152,15 +146,19 @@ public final class CoverageTester {
         }
     }
 
+    private InputStream getTargetClass(File name) throws IOException {
+        return Files.newInputStream(name.toPath());
+    }
     private InputStream getTargetClass(final String name) {
         final String resource = '/' + name.replace('.', '/') + ".class";
         return getClass().getResourceAsStream(resource);
     }
 
-    private void printCounter(final String unit, final ICounter counter) {
+    private void printCounter(final String unit, final ICounter counter, HashMap<String,Double> resultMap) {
         final Integer missed = Integer.valueOf(counter.getMissedCount());
         final Integer total = Integer.valueOf(counter.getTotalCount());
-        out.printf("%s of %s %s missed%n", missed, total, unit);
+        if (logging) out.printf("%.2f %s missed%n", (float)missed/total,unit);
+        resultMap.put(unit, missed.doubleValue()/total.doubleValue());
     }
 
     private String getColor(final int status) {
@@ -176,6 +174,20 @@ public final class CoverageTester {
     }
 
     /**
+     * Creates a new example instance printing to the given stream.
+     * @return
+     *      execute result dictionary, contains:
+     *      "instructions","branches","lines","methods","complexity"
+     *
+     */
+    public HashMap<String, Double> getResultMap() {
+        if(resultMap.isEmpty()){
+            logger.warn("The result dictionary is empty, may not execute yet!");
+        }
+        return resultMap;
+    }
+
+    /**
      * Entry point to run this examples as a Java application.
      *
      * @param args
@@ -184,7 +196,7 @@ public final class CoverageTester {
      *             in case of errors
      */
     public static void main(final String[] args) throws Exception {
-        new CoverageTester(System.out).execute();
+        new CoverageTester(System.out,new HashMap<>()).execute("data\\targets","data\\tests");
     }
 
 }
