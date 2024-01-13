@@ -16,16 +16,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static cn.hutool.core.compiler.CompilerUtil.compile;
+
 
 public class IOService {
 
-    public Code writeTestFileToJavaFile(String test, String path, boolean needFormat,boolean compile) throws IOException {
-        if (needFormat)
-            test = test.substring(4, test.length() - 3);
-
-
+    /**
+     *
+     * @param test
+     *      The string content of test file.
+     * @param path
+     *      The output path of test file.
+     * @param compile
+     *      If true then the file will be compiled after written.
+     * @return
+     * @throws IOException
+     */
+    public Code writeTestFileToJavaFile(String test, String path, boolean compile) throws IOException {
         FileOutputStream fos;
         OutputStreamWriter osw = null;
+
         try {
             File file = new File(path);
             File javaFile = file;
@@ -45,17 +55,11 @@ public class IOService {
             System.out.println("文件创建成功！");
             osw.close();
             if (compile) {
-//                run_cmd("javac *.java -verbose -d"+ path + "\\tests" +" -cp .\\lib\\*;");
-                compile(path,path+"\\lib",path+"\\tests",javaFile.getAbsolutePath(),className);
-//                JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-//
-//                String argz = "-verbose -cp *;"+" -d "+path+"\\tests";
-//                InputStream in = new ByteArrayInputStream(argz.getBytes());
-//
-//                int result = compiler.run(in, null, null, file.getPath());
-//                if (result != 0) {
-//                    return Code.EVALUATION_COMPILE_ERROR;
-//                }
+                compile(path,
+                        path+"\\lib",
+                        path+"\\tests",
+                        javaFile.getAbsolutePath(),
+                        className);
             }
             return Code.SUCCESS;
         } catch (IOException ioe) {
@@ -66,59 +70,5 @@ public class IOService {
         }
     }
 
-    public boolean compile(String rootPath, String jarPath, String dest, String filePath,String fileName){
-        File root = new File(rootPath);
 
-        List<String> jars = thirdPartyJarsAutoConfig(root.getAbsolutePath(),jarPath);
-        List<String> options = new ArrayList<>(List.of("-d", "."));
-        options.addAll(jars);
-
-        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-        StandardJavaFileManager fileManager =
-                compiler.getStandardFileManager(null, null, null);
-
-        Iterable<? extends JavaFileObject> files =
-                fileManager.getJavaFileObjectsFromStrings(
-                        Collections.singletonList(filePath));
-        JavaCompiler.CompilationTask task = compiler.getTask(
-                null, fileManager, null, options, null, files);
-        Boolean result = task.call();
-        if (result) {
-            File classFile = new File(filePath.replace(".java", ".class"));
-            if(classFile.exists()){
-                FileUtil.move(classFile, new File(
-                        dest+"\\"+fileName.replace(".java", ".class")),
-                        true);
-            }
-            System.out.println("Succeeded");
-        }
-        return result;
-    }
-
-
-    /**
-     * Automatically add the third-party jars in the specified path
-     * to the classpath configuration.
-     * @param path
-     * @return
-     */
-    private List<String> thirdPartyJarsAutoConfig(String root,String path){
-        File p = new File(path);
-        StringBuilder s = new StringBuilder();
-        List<String> list = new ArrayList<>();
-        list.add("-cp");
-        if (p.exists()&&p.isDirectory()){
-//            FilenameFilter
-            File[] jars = p.listFiles(((dir,name) -> name.endsWith(".jar")));
-            if(jars==null){
-                return list;
-            }
-            for (File jar : jars) {
-                s.append(";").append(jar.getAbsolutePath());
-            }
-        }
-        s.append(";").append(root).append(";");
-        list.add(s.toString());
-        return list;
-    }
 }

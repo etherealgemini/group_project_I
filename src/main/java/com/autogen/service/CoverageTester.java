@@ -6,7 +6,6 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.util.*;
 
-import com.autogen.controller.EvaluationController;
 import org.jacoco.core.analysis.Analyzer;
 import org.jacoco.core.analysis.CoverageBuilder;
 import org.jacoco.core.analysis.IClassCoverage;
@@ -28,7 +27,7 @@ import org.slf4j.LoggerFactory;
  */
 public final class CoverageTester {
 
-    private static final Logger logger = LoggerFactory.getLogger(EvaluationController.class);
+    private static final Logger logger = LoggerFactory.getLogger(EvaluationService.class);
     private final PrintStream out;
     private final HashMap<String,Double> resultMap;
     private boolean logging = true;
@@ -54,13 +53,14 @@ public final class CoverageTester {
 
 
     /**
-     * Run this example.
-     *
+     * Classloader will load in the class files in the path.
+     * @param targetPath
+     *      The path of target program to be tested by test files.
+     * @param testPath
+     *      The path of testing program to be executed.
      * @throws Exception
-     *             in case of errors
      */
     public void execute(String targetPath,String testPath) throws Exception {
-
 
         FileMemoryCoCoClassLoader CoCoClassLoader = new FileMemoryCoCoClassLoader();
         CoCoClassLoader.load(testPath,true);
@@ -191,6 +191,17 @@ public final class CoverageTester {
             logger.warn("The result dictionary is empty, may not execute yet!");
         }
         return resultMap;
+    }
+
+    public HashMap<String, Double> cloneResultMap() {
+        if(resultMap.isEmpty()){
+            logger.warn("The result dictionary is empty, may not execute yet!");
+        }
+        HashMap<String, Double> newResultMap = new HashMap<>();
+        for(String k:resultMap.keySet()){
+            newResultMap.put(String.copyValueOf(k.toCharArray()), Double.valueOf(resultMap.get(k).toString()));
+        }
+        return newResultMap;
     }
 
     /**

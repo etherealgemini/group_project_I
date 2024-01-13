@@ -3,17 +3,15 @@ import com.unfbx.chatgpt.entity.chat.ChatCompletion;
 import com.unfbx.chatgpt.entity.chat.ChatCompletionResponse;
 import com.unfbx.chatgpt.entity.chat.Message;
 import com.unfbx.chatgpt.function.KeyRandomStrategy;
-import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
-import org.apache.pdfbox.pdfparser.PDFParser;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
+
+import static com.autogen.utils.PDFParser.parsePDFtoString;
+
 public class test {
     static ArrayList<String> history = new ArrayList<>();
     public static void main(String[] args) {
@@ -40,7 +38,7 @@ public class test {
                     case "file upload":
                         System.out.println("input file path: ");
                         String path = s.nextLine().trim();
-                        String file = uploadFile(path);
+                        String file = parsePDFtoString(path);
 
                         next.append("以下是一个pdf文件的全文，请你理解并做好准备。");
                         next.append("\n\n");
@@ -66,38 +64,7 @@ public class test {
             });
         }
     }
-    public static String uploadFile(String filePath){
-        String result = null;
-        FileInputStream is = null;
-        PDDocument document = null;
-        try {
-            is = new FileInputStream(filePath);
-            PDFParser parser = new PDFParser(new RandomAccessBufferedFileInputStream(is));
-            parser.parse();
-            document = parser.getPDDocument();
-            PDFTextStripper stripper = new PDFTextStripper();
-            result = stripper.getText(document);
-            return result;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (is != null) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (document != null) {
-                try {
-                    document.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return "";
-    }
+
 
     public static void run_cmd(String strcmd) {
 
