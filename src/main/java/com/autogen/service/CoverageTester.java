@@ -1,5 +1,5 @@
 
-package com.autogen.utils;
+package com.autogen.service;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.util.*;
 
 import com.autogen.controller.EvaluationController;
-import lombok.extern.slf4j.Slf4j;
 import org.jacoco.core.analysis.Analyzer;
 import org.jacoco.core.analysis.CoverageBuilder;
 import org.jacoco.core.analysis.IClassCoverage;
@@ -27,7 +26,6 @@ import org.slf4j.LoggerFactory;
  * dumped. To analyze the coverage of test, you need to load both the target and test class,
  * then execute the test class and analyze the target coverage.
  */
-@Slf4j
 public final class CoverageTester {
 
     private static final Logger logger = LoggerFactory.getLogger(EvaluationController.class);
@@ -144,6 +142,7 @@ public final class CoverageTester {
                         getColor(cc.getLine(i).getStatus()));
             }
         }
+        System.out.println(resultMap);
     }
 
     private InputStream getTargetClass(File name) throws IOException {
@@ -158,7 +157,14 @@ public final class CoverageTester {
         final Integer missed = Integer.valueOf(counter.getMissedCount());
         final Integer total = Integer.valueOf(counter.getTotalCount());
         if (logging) out.printf("%.2f %s missed%n", (float)missed/total,unit);
-        resultMap.put(unit, missed.doubleValue()/total.doubleValue());
+        if(total.equals(0)){
+            return;
+        }
+        if(resultMap.containsKey(unit)){
+            resultMap.put(unit,resultMap.get(unit)+missed.doubleValue()/total.doubleValue());
+        }else {
+            resultMap.put(unit, missed.doubleValue()/total.doubleValue());
+        }
     }
 
     private String getColor(final int status) {

@@ -15,7 +15,7 @@ public class EvaluationController {
 
     private static final int COVERAGE_THRESHOLD = 0;
     private static final int MUTATION_THRESHOLD = 0;
-    private static final String rootPath = "/data";
+    private static final String rootPath = "data";
     EvaluateService evaluateService = new EvaluateService();
     IOService ioService = new IOService();
 
@@ -28,7 +28,7 @@ public class EvaluationController {
         String code = Formatter.codeBlockFormatter(raw,"java");
 
         try {
-            ioService.writeTestFileToJavaFile(code, rootPath,false);
+            ioService.writeTestFileToJavaFile(code, rootPath,false,true);
         } catch (IOException e){
             logger.error("Cannot write test file string to java file!");
             return Code.EVALUATION_IO_WRITING_ERROR;
@@ -47,6 +47,4 @@ public class EvaluationController {
             return Code.EVALUATION_ANALYZE_ERROR;
         }
     }
-
-
 }

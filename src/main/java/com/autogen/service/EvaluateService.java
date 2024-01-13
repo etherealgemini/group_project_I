@@ -1,7 +1,6 @@
 package com.autogen.service;
 
 import com.autogen.model.Code;
-import com.autogen.utils.CoverageTester;
 
 import java.util.HashMap;
 import java.util.Map;
