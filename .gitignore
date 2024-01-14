@@ -31,4 +31,6 @@ build/
 .vscode/
 /unfbx_0xBA5D895F_public.asc
 /unfbx_0xBA5D895F_SECRET.gpg
-log/RollingFileAppender.log
+# log/RollingFileAppender.log
+
+/log/
