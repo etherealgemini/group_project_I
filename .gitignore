@@ -1,6 +1,6 @@
 HELP.md
 target/
-log
+log/
 
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
@@ -35,6 +35,6 @@ build/
 /unfbx_0xBA5D895F_SECRET.gpg
 # log/RollingFileAppender.log
 
-data/evosuite-tests/
+data/evosuite-tests
 data/core/script.bat
 
