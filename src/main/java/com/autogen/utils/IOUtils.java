@@ -23,8 +23,6 @@ public class IOUtils {
      *      The string content of test file.
      * @param path
      *      The output path of test file.
-     * @param compile
-     *      If true then the file will be compiled after written.
      * @return
      * @throws IOException
      */

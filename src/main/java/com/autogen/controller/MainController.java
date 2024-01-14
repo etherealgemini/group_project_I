@@ -38,20 +38,22 @@ public class MainController {
         String testPath = getPropertiesString(autogen,"testPath");
         String targetPath = getPropertiesString(autogen,"targetPath");
         String rootPath = getPropertiesString(autogen,"rootPath");
+        String evosuitePath = getPropertiesString(autogen,"evosuitePath");
 
-        //2.1 pdf转string
+        //2.1 编译目标程序文件至targetPath供后续评测时使用
+        compile(programRootPath,libPath,targetPath,programRootPath);
+
+        //2.2 pdf转string
         String PDFContent = parsePDFtoString(getPropertiesString(autogen,"pdfInputPath"));
 
-        //2.2 运行Evosuite
+        //2.3 运行Evosuite
         String cmdOrigin = readFile("data\\core\\script_raw.bat");
-        cmdOrigin = cmdOrigin.replace("TARGET_PATH",programRootPath);
-        cmdOrigin = cmdOrigin.replace("BASE_DIR_PATH",corePath);//-target TARGET_PATH -base_dir BASE_DIR_PATH
+        cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", evosuitePath);
+        cmdOrigin = cmdOrigin.replace("TARGET_PATH",targetPath);
+        cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH",rootPath);//-target TARGET_PATH -base_dir BASE_DIR_PATH
         writeFile("data\\core\\script.bat",cmdOrigin);
 
         run_cmd("data\\core\\script.bat");
-
-        //2.3 编译目标程序文件至targetPath供后续评测时使用
-        compile(programRootPath,libPath,targetPath,programRootPath);
 
         //2.4 后台进行人工测试评测，结果将作为Baseline
         EvaluationService evaluationService =

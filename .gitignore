@@ -34,3 +34,4 @@ build/
 # log/RollingFileAppender.log
 
 /log/
+data/core/script.bat

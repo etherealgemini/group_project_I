@@ -38,13 +38,7 @@ public class CompileUtils {
         //will extract the target file to dest later
         List<String> options = new ArrayList<>(List.of("-d", "."));
         List<String> jars;
-        String dirFilePath = filePath.substring(0,filePath.lastIndexOf("."));
 
-        if (jarPath!=null){
-            log.info("Adding third-party jar dependencies' in directory: {}", jarPath);
-            jars = classPathConfig(new ArrayList<>(List.of(rootPath,dirFilePath)),jarPath);
-            options.addAll(jars);
-        }
 
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         StandardJavaFileManager fileManager =
@@ -55,6 +49,15 @@ public class CompileUtils {
         Iterable<? extends JavaFileObject> files;
         List<File> javaFiles = null;
         boolean targetIsFile = javaFile.isFile();
+
+        String dirFilePath = targetIsFile?filePath.substring(0,filePath.lastIndexOf(".")):filePath;
+
+        if (jarPath!=null){
+            log.info("Adding third-party jar dependencies' in directory: {}", jarPath);
+            jars = classPathConfig(new ArrayList<>(List.of(rootPath,dirFilePath)),jarPath);
+            options.addAll(jars);
+        }
+
         if(javaFile.exists()){
             if(targetIsFile){
                 files = fileManager.getJavaFileObjectsFromStrings(
