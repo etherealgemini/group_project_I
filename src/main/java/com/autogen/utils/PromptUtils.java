@@ -22,6 +22,7 @@ public class PromptUtils {
     }
 
     private static String refineTestPrompt(String raw) {
+        return "";
     }
 
     private static String pdfPrompt(String pdfContent){

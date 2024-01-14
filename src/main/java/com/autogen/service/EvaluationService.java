@@ -2,31 +2,45 @@ package com.autogen.service;
 
 import com.autogen.model.Code;
 import com.autogen.utils.Formatter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EvaluationService {
-    public static final Logger logger = LoggerFactory.getLogger(EvaluationService.class);
+import static com.autogen.utils.IOUtils.writeTestFileToJavaFile;
 
+@Slf4j
+public class EvaluationService {
     private static Map<String,Double> coverageThresholds;
     private static Map<String,Double> mutationResults;
-    private static String programPath = "data\\targets";
+
+    /**
+     * Compiled program path, used by system.
+     */
+    private static String targetPath;
+    /**
+     * Compiled tests path, used by system.
+     */
     private static String testPath;
-    private static String tempTestPath = "data\\tests";
-    IOService ioService = new IOService();
+    private static String rootPath;
+    private static String libPath;
+    private static String programRootPath;
 
     private final static EvaluationService EVALUATION_SERVICE = new EvaluationService();
+
+
     private EvaluationService(){}
     public static EvaluationService getInstance(){
         return EVALUATION_SERVICE;
     }
-    public static EvaluationService getInstance(String programPath,String testPath){
-        EvaluationService.programPath = programPath;
+    public static EvaluationService getInstance(String programRootPath, String targetPath,String testPath,
+                                                String rootPath,String libPath){
+        EvaluationService.programRootPath = programRootPath;
+        EvaluationService.rootPath = rootPath;
+        EvaluationService.targetPath = targetPath;
         EvaluationService.testPath = testPath;
+        EvaluationService.libPath = libPath;
         return EVALUATION_SERVICE;
     }
 
@@ -38,24 +52,19 @@ public class EvaluationService {
     public Code evaluateTestFromGPT(String raw){
         String code = Formatter.codeBlockFormatter(raw,"java");
 
-        try {
-            Code cpResult = ioService.writeTestFileToJavaFile(code, tempTestPath,true);
-            System.out.println("Io and compile result: "+cpResult);
-        } catch (IOException e){
-            logger.error("Cannot write test file string to java file!");
-            return Code.EVALUATION_IO_WRITING_ERROR;
-        }
+        Code cpResult = writeTestFileToJavaFile(code,rootPath,programRootPath,testPath,libPath);
+        System.out.println("Io and compile result: "+cpResult);
 
         try {
-            evaluateTest(0, programPath,tempTestPath);
+            evaluateTest(0, targetPath,testPath);
         } catch (Exception e){
-            logger.error(e.getMessage());
+            log.error(e.getMessage());
             return Code.EVALUATION_ERROR;
         }
         try {
             return analyseResult(0);
         } catch (Exception e){
-            logger.error(e.getMessage());
+            log.error(e.getMessage());
             return Code.EVALUATION_ANALYZE_ERROR;
         }
     }
@@ -74,14 +83,22 @@ public class EvaluationService {
     public void evaluateTest(int type, String targetPath, String testPath) throws Exception {
         switch (type){
             case 0:
+                log.info("Running coverage test on test files at {}, the target file are at {}",
+                        testPath,targetPath);
                 coverageTester.execute(targetPath,testPath);
                 break;
             case 1:
                 evaluateTestMutation(targetPath,testPath);
                 break;
             case 100:
+                log.info("Running coverage test on test files at {}, the target file are at {}",
+                        testPath,targetPath);
+                log.info("The result will be cloned as baseline.");
+
                 coverageTester.execute(targetPath,testPath);
                 coverageThresholds = coverageTester.cloneResultMap();
+
+                log.info("The baseline is: {}",coverageThresholds);
                 break;
             default:
                 break;

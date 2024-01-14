@@ -1,2 +1,4 @@
 @echo on
-java -jar evosuite-1.2.0.jar -target TARGET_PATH -base_dir BASE_DIR_PATH
+
+java -jar D:\Coding\Creative\autogenTest\data\core\evosuite-1.2.0.jar -target D:\Coding\Creative\autogenTest\programCode -base_dir D:\Coding\Creative\autogenTest\data\core
+

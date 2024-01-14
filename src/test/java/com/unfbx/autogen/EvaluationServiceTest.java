@@ -17,7 +17,8 @@ public class EvaluationServiceTest {
 
 
     @Test
-    public void testGetEvaluation() {
+    public void testEvaluation() {
+
         String temp = "```java"+
                 "import java.lang.reflect.InvocationTargetException;\r\n" +
                 "import org.junit.jupiter.api.Test;\r\n" +
@@ -34,6 +35,7 @@ public class EvaluationServiceTest {
                 "    }\r\n" +
                 "}\r\n" +
                 "```";
+
         EvaluationService controller = EvaluationService.getInstance();
         System.out.println(controller.evaluateTestFromGPT(temp));
     }

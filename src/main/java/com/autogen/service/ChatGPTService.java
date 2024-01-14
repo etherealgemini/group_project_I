@@ -33,6 +33,14 @@ public class ChatGPTService {
     }
 
     public ArrayList<String> chat(String msg){
+        if(openAiClient==null){
+            try {
+                throw new RuntimeException("请先初始化ChatGPT服务");
+            }catch (RuntimeException e){
+                System.out.println(e.getMessage());
+                return null;
+            }
+        }
         Message message = Message.builder().role(Message.Role.USER).content(history +msg).build();
         ChatCompletion chatCompletion = ChatCompletion.builder().messages(Collections.singletonList(message)).build();
         ChatCompletionResponse chatCompletionResponse = openAiClient.chatCompletion(chatCompletion);
