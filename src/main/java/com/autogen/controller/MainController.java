@@ -4,21 +4,20 @@ import com.autogen.model.Code;
 import com.autogen.model.FancyOutput;
 import com.autogen.service.ChatGPTService;
 import com.autogen.service.EvaluationService;
-import com.unfbx.chatgpt.OpenAiClient;
-import com.unfbx.chatgpt.function.KeyRandomStrategy;
-import okhttp3.Response;
+import com.autogen.utils.PromptType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static com.autogen.utils.CommandLineUtils.run_cmd;
 import static com.autogen.utils.PDFParser.parsePDFtoString;
+import static com.autogen.utils.PromptUtils.prompting;
 
 public class MainController {
 
     private ResourceBundle autogen;
+    private ChatGPTService chatGPTService;
 
     public void launch(){
         //0. 系统启动消息
@@ -47,9 +46,18 @@ public class MainController {
                 }).start();
 
         //3. prompt（第一次输入）
-        ChatGPTService chatGPTService = ChatGPTService.getInstance();
+        chatGPTService = ChatGPTService.getInstance();
         chatGPTService.initializeChatService();
-        ArrayList<String> responses = chatGPTService.chat(); //FIXME:需要处理prompt
+
+        String msg = prompting(PDFContent, PromptType.PDF_SUBMIT);
+
+        ArrayList<Integer> respPointer = new ArrayList<>();
+        ArrayList<String> responses = new ArrayList<>();
+
+        String response = chat(msg,responses,respPointer);
+
+        msg = prompting(initialTestContent,PromptType.INITIAL_TEST_SUBMIT);
+        response = chat(msg,responses,respPointer);
 
         //4. 测试GPT结果
         Code evaluateResult = evaluationService.evaluateTestFromGPT(responses.get(0));
@@ -58,9 +66,9 @@ public class MainController {
         boolean condition = evaluateResult.equals(Code.EVALUATION_PASS);
         while(!condition){
             //7. prompt（修正）
-            responses = chatGPTService.chat();
+            response = chat(msg,responses,respPointer);
             //8. evaluation
-            evaluateResult = evaluationService.evaluateTestFromGPT(responses.get(0));
+            evaluateResult = evaluationService.evaluateTestFromGPT(response);
             //9. 重复7-8，直到满足输出条件
             condition = evaluateResult.equals(Code.EVALUATION_PASS);
         }
@@ -70,5 +78,13 @@ public class MainController {
         System.out.println();
     }
 
+    private String chat(String prompt,
+                      ArrayList<String> responses,
+                      ArrayList<Integer> respPointer) {
+        ArrayList<String> temp = chatGPTService.chat(prompt);
+        responses.addAll(temp);
+        respPointer.add(responses.size()-1);
+        return temp.get(0);
+    }
 
 }
