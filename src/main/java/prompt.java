@@ -27,7 +27,7 @@ public class prompt {
                 //自己做了代理就传代理地址，没有可不不传
                 .apiHost("https://api.chatanywhere.tech")
                 .build();
-        //聊天模型：gpt-3.5
+
         Scanner s = new Scanner(System.in);
         history.add("以下是历史记录，你可以作为参考但不要返回在回答里");
         run_cmd("D:\\temp\\script_raw.bat");
@@ -35,63 +35,63 @@ public class prompt {
         // 新增：读取生成的 .test 文件内容并加入 history 列表
         String testFileContent = readTestFile("D:\\temp\\output.test");
         history.add(String.format("{role:system,history_content:%s}", testFileContent));
-//处理原始的.test
-        while(true){
-            StringBuilder next = new StringBuilder();
-            System.out.println("Start input (enter \"end input\" to finish):");
-            WHILE:
-            while(true){
-                String _next = s.nextLine();
-                switch (_next){
-                    case "end input":
-                        break WHILE;
-                    case "file upload":
-                        System.out.println("input file path: ");
-                        String path = s.nextLine().trim();
-                        String file = uploadFile(path);
 
-                        next.append("以下是题目的要求");
-                        next.append("\n\n");
-                        next.append(file);
-                        next.append("\n\n");
-                        next.append("题目内容结束，请上传 .test 文件。");
-                        break ;
+        // 处理原始的 .test
+        processOriginalTestFile(openAiClient, true);
 
-                    case "test upload":
-                        next.append("以下是evosuite生成的测试文件：");
-                        next.append("\n\n");
-                        next.append(testFileContent);
-                        next.append("\n\n");
-                        next.append("测试文件内容结束，请你根据题目的要求帮我补全测试文件。");
-                        break WHILE;
-                    default:
-                        next.append(_next);
-                        break;
-                }
-            }
-            if(next.toString().equals("quit chat")){
+
+        while (true) {
+            processOriginalTestFile(openAiClient, false);
+
+            System.out.println("Do you want to continue processing evolution .test file? (yes/no)");
+            Scanner scanner = new Scanner(System.in);
+            String userResponse = scanner.nextLine().trim().toLowerCase();
+            if (!userResponse.equals("yes")) {
                 break;
             }
-
-            Message message = Message.builder().role(Message.Role.USER).content(String.valueOf(history)+next).build();
-            ChatCompletion chatCompletion = ChatCompletion.builder().messages(Collections.singletonList(message)).build();
-            ChatCompletionResponse chatCompletionResponse = openAiClient.chatCompletion(chatCompletion);
-            chatCompletionResponse.getChoices().forEach(e -> {
-                System.out.println(e.getMessage().getContent());
-                history.add(String.format("{role:user,history_content:%s}",next));
-                history.add(String.format("{role:ChatGPT,content:%s}",e.getMessage().getContent()));
-            });
         }
 
-
-
-        //处理evolution的.test
-        while (true){
-            String evolutionTestFileContent = readEvolutionTestFile("D:\\temp\\evolution.java.test");
-            history.add(String.format("{role:evolution,history_content:%s}", evolutionTestFileContent));
-
-        }
     }
+
+    private static void processOriginalTestFile(OpenAiClient openAiClient, boolean isOriginal) {
+        StringBuilder next = new StringBuilder();
+        System.out.println("Start input (processing " + (isOriginal ? "original" : "evolution") + " .test file):");
+
+        // 读取文件内容并附加到 next 字符串中
+        String filePath = isOriginal ? "D:\\temp\\your_original_file.txt" : "D:\\temp\\evolution.java.test";
+        String file = uploadFile(filePath);
+
+        if (isOriginal) {
+            next.append("以下是题目的要求");
+            next.append("\n\n");
+            next.append(file);
+            next.append("\n\n");
+            next.append("题目内容结束，请上传 .test 文件。");
+            next.append("\n\n");
+            next.append(".test文件内容结束，请你根据题目的要求帮我补全测试文件。");
+        } else {
+            next.append("以下是evosuite生成的测试文件：");
+            next.append("\n\n");
+            next.append(file);
+            next.append("\n\n");
+            next.append("根据...重新生成");
+        }
+
+        // 将用户输入添加到历史记录
+        history.add(String.format("{role:user,history_content:%s}", next));
+
+
+        Message message = Message.builder().role(Message.Role.USER).content(String.valueOf(history)).build();
+        ChatCompletion chatCompletion = ChatCompletion.builder().messages(Collections.singletonList(message)).build();
+        ChatCompletionResponse chatCompletionResponse = openAiClient.chatCompletion(chatCompletion);
+        //结果
+        chatCompletionResponse.getChoices().forEach(e -> {
+            System.out.println(e.getMessage().getContent());
+            history.add(String.format("{role:ChatGPT,content:%s}", e.getMessage().getContent()));
+        });
+    }
+
+
     public static String uploadFile(String filePath){
         String result = null;
         FileInputStream is = null;
