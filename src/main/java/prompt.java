@@ -82,6 +82,8 @@ public class prompt {
             });
         }
 
+
+
         //处理evolution的.test
         while (true){
             String evolutionTestFileContent = readEvolutionTestFile("D:\\temp\\evolution.java.test");
