@@ -3,9 +3,10 @@ import com.unfbx.chatgpt.entity.chat.ChatCompletion;
 import com.unfbx.chatgpt.entity.chat.ChatCompletionResponse;
 import com.unfbx.chatgpt.entity.chat.Message;
 import com.unfbx.chatgpt.function.KeyRandomStrategy;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.util.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +30,7 @@ public class prompt {
         //聊天模型：gpt-3.5
         Scanner s = new Scanner(System.in);
         history.add("以下是历史记录，你可以作为参考但不要返回在回答里");
-        run_cmd("D:\\temp\\script.bat");
+        run_cmd("D:\\temp\\script_raw.bat");
 
         // 新增：读取生成的 .test 文件内容并加入 history 列表
         String testFileContent = readTestFile("D:\\temp\\output.test");
@@ -97,7 +98,7 @@ public class prompt {
         PDDocument document = null;
         try {
             is = new FileInputStream(filePath);
-            PDFParser parser = new PDFParser(is);
+            PDFParser parser = new PDFParser(new RandomAccessBufferedFileInputStream(is));
             parser.parse();
             document = parser.getPDDocument();
             PDFTextStripper stripper = new PDFTextStripper();
