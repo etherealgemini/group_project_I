@@ -45,11 +45,12 @@ public class EvaluationService {
     }
 
     /**
-     * 可以直接将gpt的回复放进来，请放入content
+     * 可以直接将gpt的回复放进来，请放入content。
+     * 方法已加锁，防止第一次用户测试与后续测试同步执行导致系统异常。
      * @param raw
      * @return
      */
-    public Code evaluateTestFromGPT(String raw){
+    public synchronized Code evaluateTestFromGPT(String raw){
         String code = Formatter.codeBlockFormatter(raw,"java");
 
         Code cpResult = writeTestFileToJavaFile(code,rootPath,programRootPath,testPath,libPath);
@@ -86,6 +87,7 @@ public class EvaluationService {
                 log.info("Running coverage test on test files at {}, the target file are at {}",
                         testPath,targetPath);
                 coverageTester.execute(targetPath,testPath);
+                log.info("The test result is: {}",coverageTester.getResultMap());
                 break;
             case 1:
                 evaluateTestMutation(targetPath,testPath);
@@ -119,7 +121,7 @@ public class EvaluationService {
                 if(result.isEmpty()){
                     return Code.EVALUATION_ANALYZE_ERROR;
                 }
-                if(result.get("lines")<-1.0){
+                if(result.get("lines")<coverageThresholds.get("lines")){
                     return Code.WORSE_COVERAGE_LINE;
                 }
                 return Code.EVALUATION_PASS;

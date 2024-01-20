@@ -6,11 +6,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static com.autogen.utils.CommandLineUtils.run_cmd;
 import static com.autogen.utils.CommandLineUtils.run_cmd_example;
+import static com.autogen.utils.CompileUtils.compile;
 import static com.autogen.utils.IOUtils.*;
 import static com.autogen.utils.IOUtils.getPropertiesString;
 import static com.autogen.utils.PDFParser.parsePDFtoString;
@@ -25,6 +27,11 @@ public class GeneralTest {
     private static String targetPath;
     private static String rootPath;
     private static String evoPath;
+    private static String humanTestPath;
+    private static String evosuiteTestPath;
+    private static EvaluationService evaluationService =
+            EvaluationService.getInstance(programRootPath,targetPath,testPath,rootPath,libPath);
+
 
     @Before
     public void init() {
@@ -38,6 +45,8 @@ public class GeneralTest {
         targetPath = getPropertiesString(autogen, "targetPath");
         rootPath = getPropertiesString(autogen, "rootPath");
         evoPath = getPropertiesString(autogen, "evosuitePath");
+        humanTestPath = getPropertiesString(autogen, "humanTestPath");
+        evosuiteTestPath = getPropertiesString(autogen,"evosuiteTestPath");
     }
 
     @Test
@@ -77,7 +86,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void testEvaluation() {
+    public void testEvaluation() throws Exception {
 
         String temp = "```java" +
                 "import java.lang.reflect.InvocationTargetException;\r\n" +
@@ -95,9 +104,18 @@ public class GeneralTest {
                 "    }\r\n" +
                 "}\r\n" +
                 "```";
-        EvaluationService evaluationService =
-                EvaluationService.getInstance(programRootPath,targetPath,testPath,rootPath,libPath);
 
-        System.out.println(evaluationService.evaluateTestFromGPT(temp));
+        evaluationService.evaluateTest(100,targetPath,humanTestPath);
+
+//        System.out.println(evaluationService.evaluateTestFromGPT(temp));
     }
+
+    @Test
+    public void evoCtest2() throws Exception {
+        System.out.println(readFile(new File(humanTestInputPath).listFiles()[0].getAbsolutePath()));
+//        evaluationService.evaluateTest(0,targetPath,testPath);
+    }
+
+
+
 }

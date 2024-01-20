@@ -46,7 +46,7 @@ public class FileMemoryCoCoClassLoader extends ClassLoader {
      * @param isTest
      *      Mark whether this is test-class path, only affect where the class file name stored in.
      */
-    public void load(String rootClassPath,boolean isTest){
+    public void loadNormalClass(String rootClassPath, boolean isTest){
         File classPath = new File(rootClassPath);
         Deque<File> stack = new ArrayDeque<>();
         stack.push(classPath);

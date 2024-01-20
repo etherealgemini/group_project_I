@@ -498,3 +498,1100 @@ java.io.FileNotFoundException: D:\Coding\Creative\autogenTest\group_project_I\da
 [INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
 [INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\group_project_I\data\TargetTester.java successfully
 [INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-14][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-14][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-14][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-14][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\autogenTest\rawCode
+[INFO][24-01-14][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[WARN][24-01-14][com.autogen.service.EvaluationService]The result dictionary is empty, may not execute yet!
+[INFO][24-01-14][com.autogen.service.EvaluationService]The baseline is: {}
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\autogenTest\originTest, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=6.0, complexity=6.0, methods=6.0, branches=4.0, lines=6.0}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.2579471182412359, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.25}
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\group_project_I\data\evosuite-tests successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\group_project_I\data\evosuite-tests successfully
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.utils.IOUtils]Test file written to D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java
+[INFO][24-01-15][com.autogen.utils.IOUtils]Compiling D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java...
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.utils.IOUtils]Test file written to D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java
+[INFO][24-01-15][com.autogen.utils.IOUtils]Compiling D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java...
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java successfully
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.utils.IOUtils]Test file written to D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java
+[INFO][24-01-15][com.autogen.utils.IOUtils]Compiling D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java...
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The test result is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.utils.IOUtils]Test file written to D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java
+[INFO][24-01-15][com.autogen.utils.IOUtils]Compiling D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java...
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java successfully
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The test result is: {instructions=0.6258830131379152, complexity=0.8376068376068377, methods=0.0, branches=0.8, lines=0.7918287937743193}
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\rawCode successfully
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\autogenTest\originTest successfully
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font ArialMT
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font Consolas
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font SegoeUI-Bold
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[DEBUG][24-01-15][org.apache.fontbox.ttf.PostScriptTable]No PostScript name information is provided for the font MicrosoftJhengHeiUIRegular
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[WARN][24-01-15][org.apache.fontbox.ttf.CmapSubtable]cmap format 4 subtable is empty
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\humanTests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The result will be cloned as baseline.
+[INFO][24-01-15][com.autogen.service.EvaluationService]The baseline is: {instructions=0.3129415065689576, complexity=0.4188034188034188, methods=0.0, branches=0.4, lines=0.39591439688715957}
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[DEBUG][24-01-15][org.apache.pdfbox.io.ScratchFileBuffer]ScratchFileBuffer not closed!
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.controller.MainController]Send prompt......
+[INFO][24-01-15][com.autogen.utils.IOUtils]Test file written to D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java
+[INFO][24-01-15][com.autogen.utils.IOUtils]Compiling D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java...
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Adding third-party jar dependencies' in directory: D:\Coding\Creative\group_project_I\data\lib
+[INFO][24-01-15][com.autogen.utils.CompileUtils]Compile D:\Coding\Creative\group_project_I\data\TestOnlineStoreLocal.java successfully
+[INFO][24-01-15][com.autogen.service.EvaluationService]Running coverage test on test files at D:\Coding\Creative\group_project_I\data\tests, the target file are at D:\Coding\Creative\group_project_I\data\targets
+[INFO][24-01-15][com.autogen.service.EvaluationService]The test result is: {instructions=0.6258830131379152, complexity=0.8376068376068377, methods=0.0, branches=0.8, lines=0.7918287937743193}

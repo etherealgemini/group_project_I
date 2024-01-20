@@ -63,8 +63,8 @@ public final class CoverageTester {
     public void execute(String targetPath,String testPath) throws Exception {
 
         FileMemoryCoCoClassLoader CoCoClassLoader = new FileMemoryCoCoClassLoader();
-        CoCoClassLoader.load(testPath,true);
-        CoCoClassLoader.load(targetPath,false);
+        CoCoClassLoader.loadNormalClass(testPath,true);
+        CoCoClassLoader.loadNormalClass(targetPath,false);
 
         // For instrumentation and runtime we need a IRuntime instance
         // to collect execution data:
@@ -101,9 +101,10 @@ public final class CoverageTester {
             Class<?> test = CoCoClassLoader.loadClass(className);
             Object testO = test.newInstance();
             Method[] testMethods = test.getDeclaredMethods();
+            //会尝试排序，但不保证能按照原定义顺序。
+            Arrays.sort(testMethods, Comparator.comparing(Method::getName));
             for(Method mo:testMethods){
                 if(Arrays.stream(mo.getDeclaredAnnotations()).anyMatch(annotation -> {
-                    System.out.println(annotation);
                     return annotation.toString().contains("Test");
                 })){
                     mo.invoke(testO);
@@ -137,12 +138,12 @@ public final class CoverageTester {
             printCounter("methods", cc.getMethodCounter(),resultMap);
             printCounter("complexity", cc.getComplexityCounter(),resultMap);
 
-            for (int i = cc.getFirstLine(); i <= cc.getLastLine(); i++) {
-                out.printf("Line %s: %s%n", Integer.valueOf(i),
-                        getColor(cc.getLine(i).getStatus()));
-            }
+//            for (int i = cc.getFirstLine(); i <= cc.getLastLine(); i++) {
+//                out.printf("Line %s: %s%n", Integer.valueOf(i),
+//                        getColor(cc.getLine(i).getStatus()));
+//            }
         }
-        System.out.println(resultMap);
+//        System.out.println(resultMap);
     }
 
     private InputStream getTargetClass(File name) throws IOException {

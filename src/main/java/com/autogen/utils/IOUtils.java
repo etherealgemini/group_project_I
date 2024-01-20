@@ -80,7 +80,7 @@ public class IOUtils {
 
     public static String readFile(String filePath) {
         StringBuilder content = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath, StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine())!=null) {
                 content.append(line).append("\n");
@@ -90,6 +90,7 @@ public class IOUtils {
         }
         return content.toString();
     }
+
     public static Code writeFile(String filePath, String content) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);
