@@ -2,12 +2,35 @@ package com.unfbx.autogen;
 
 import com.autogen.service.EvaluationService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class EvaluationServiceTest {
 
+    private static ResourceBundle autogen;
+    private static HashMap<String,String> systemProperties;
+    @Before
+    public void init() {
+        autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
+        systemProperties = GeneralTest.loadPathProperties();
+        //1. 从资源文件读入各类路径
+//        autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
+//        humanTestInputPath = getPropertiesString(autogen, "originTestInputPath");
+//        programRootPath = getPropertiesString(autogen, "programRootPath");
+//        corePath = getPropertiesString(autogen, "corePath");
+//        libPath = getPropertiesString(autogen, "libPath");
+//        testPath = getPropertiesString(autogen, "testPath");
+//        targetPath = getPropertiesString(autogen, "targetPath");
+//        rootPath = getPropertiesString(autogen, "rootPath");
+//        evoPath = getPropertiesString(autogen, "evosuitePath");
+//        humanTestPath = getPropertiesString(autogen, "humanTestPath");
+//        evosuiteTestPath = getPropertiesString(autogen,"evosuiteTestPath");
+    }
     @Test
     public void testEvosuite(){
         String path = "data\\core\\evosuite-1.2.0.jar";
@@ -37,6 +60,6 @@ public class EvaluationServiceTest {
                 "```";
 
         EvaluationService controller = EvaluationService.getInstance();
-        System.out.println(controller.evaluateTestFromGPT(temp));
+        System.out.println(controller.evaluateTestFromGPT(temp,systemProperties));
     }
 }

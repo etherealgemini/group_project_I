@@ -3,8 +3,12 @@ package com.autogen.service;
 
 import java.io.*;
 import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.file.Files;
 import java.util.*;
+import com.autogen.utils.FileUtils;
+import com.autogen.utils.ExtClasspathLoader;
 
 import org.jacoco.core.analysis.Analyzer;
 import org.jacoco.core.analysis.CoverageBuilder;
@@ -52,19 +56,21 @@ public final class CoverageTester {
     }
 
 
-    /**
-     * Classloader will load in the class files in the path.
-     * @param targetPath
-     *      The path of target program to be tested by test files.
-     * @param testPath
-     *      The path of testing program to be executed.
-     * @throws Exception
-     */
-    public void execute(String targetPath,String testPath) throws Exception {
 
-        FileMemoryCoCoClassLoader CoCoClassLoader = new FileMemoryCoCoClassLoader();
-        CoCoClassLoader.loadNormalClass(testPath,true);
-        CoCoClassLoader.loadNormalClass(targetPath,false);
+    public void execute(HashMap<String,String> systemProperties) throws Exception {
+        String testPath = systemProperties.get("testPath");
+        String targetPath = systemProperties.get("targetPath");
+        String rootPath = systemProperties.get("rootPath");
+
+        String tempInstrTargetPath = rootPath + "\\temp\\targets\\instr";
+        String tempInstrTestPath = rootPath + "\\temp\\tests\\instr";
+
+//        FileMemoryCoCoClassLoader CoCoClassLoader = new FileMemoryCoCoClassLoader();
+//        CoCoClassLoader.loadNormalClass(testPath,true);
+//        CoCoClassLoader.loadNormalClass(targetPath,false);
+
+        HashMap<String,byte[]> testHashmap = FileUtils.getFileByte(testPath,".class");
+        HashMap<String,byte[]> targetHashmap = FileUtils.getFileByte(targetPath,".class");
 
         // For instrumentation and runtime we need a IRuntime instance
         // to collect execution data:
@@ -83,20 +89,67 @@ public final class CoverageTester {
         // In this tutorial we use a special class loader to directly load the
         // instrumented class definition from a byte[] instances.
 
-        for(String className:CoCoClassLoader.getTargetNames()){
-            CoCoClassLoader.addDefinition(className,
-                    instr.instrument(CoCoClassLoader.getOriginClassByte(className),className),false
-            );
+//        TODO: no need to load in the origin file into classloader, read the bytes and instrument it, then load into classloader.
+
+//        for(String className:CoCoClassLoader.getTargetNames()){
+//            CoCoClassLoader.addDefinition(className,
+//                    instr.instrument(CoCoClassLoader.getOriginClassByte(className),className),false
+//            );
+//        }
+        File tempTargetFile = new File(tempInstrTargetPath);
+        File tempTestFile = new File(tempInstrTestPath);
+        if (!tempTargetFile.exists()){
+            tempTargetFile.mkdirs();
+        }
+        if (!tempTestFile.exists()){
+            tempTestFile.mkdirs();
         }
 
-        for(String className: CoCoClassLoader.getTestsNames()){
-            CoCoClassLoader.addDefinition(className,
-                    instr.instrument(CoCoClassLoader.getOriginClassByte(className),className),true
-            );
+        for(String className:targetHashmap.keySet()){
+            byte[] instrTemp = instr.instrument(targetHashmap.get(className),className);
+            FileUtils.writeByte(instrTemp,tempTargetFile.getAbsolutePath()+"/"+className+".class");
+        }
+        for(String className:testHashmap.keySet()){
+            byte[] instrTemp = instr.instrument(testHashmap.get(className),className);
+            FileUtils.writeByte(instrTemp,tempTestFile.getAbsolutePath()+"/"+className+".class");
         }
 
-        // Here we execute our test target class by reflection:
+//        for(String className:CoCoClassLoader.getTargetNames()){
+//            CoCoClassLoader.addDefinition(className,
+//                    instr.instrument(FileUtils.getByte(new File(className)),className),false
+//            );
+//        }
+//
+//        for(String className: CoCoClassLoader.getTestsNames()){
+//            CoCoClassLoader.addDefinition(className,
+//                    instr.instrument(CoCoClassLoader.getOriginClassByte(className),className),true
+//            );
+//        }
 
+        ArrayList<URL> urls = new ArrayList<>();
+        urls.add(new File(systemProperties.get("libPath")+"/").toURI().toURL());
+        urls.add(new File(tempTestFile.getAbsolutePath()+"/").toURI().toURL());
+        urls.add(new File(tempTargetFile.getAbsolutePath()+"/").toURI().toURL());
+//        urls.add(new File(new File(testPath).getAbsolutePath()+"/").toURI().toURL());
+//        urls.add(new File(new File(targetPath).getAbsolutePath()+"/").toURI().toURL());
+
+        URLClassLoader classLoader = new URLClassLoader(urls.toArray(new URL[0]));
+
+        // Here we execute our test target class by reflection, which should be instrumented:
+        for(String className:testHashmap.keySet()){
+            Class<?> test = Class.forName(className,false,classLoader);
+            Object testO = test.newInstance();
+            Method[] testMethods = test.getDeclaredMethods();
+            //会尝试排序，但不保证能按照原定义顺序。
+            Arrays.sort(testMethods, Comparator.comparing(Method::getName));
+            for(Method mo:testMethods){
+                if(Arrays.stream(mo.getDeclaredAnnotations()).anyMatch(annotation -> annotation.toString().contains("Test"))){
+                    mo.invoke(testO);
+                }
+            }
+        }
+
+        /*
         for(String className: CoCoClassLoader.getTestsNames()){
             Class<?> test = CoCoClassLoader.loadClass(className);
             Object testO = test.newInstance();
@@ -104,13 +157,12 @@ public final class CoverageTester {
             //会尝试排序，但不保证能按照原定义顺序。
             Arrays.sort(testMethods, Comparator.comparing(Method::getName));
             for(Method mo:testMethods){
-                if(Arrays.stream(mo.getDeclaredAnnotations()).anyMatch(annotation -> {
-                    return annotation.toString().contains("Test");
-                })){
+                if(Arrays.stream(mo.getDeclaredAnnotations()).anyMatch(annotation -> annotation.toString().contains("Test"))){
                     mo.invoke(testO);
                 }
             }
         }
+        */
 
         // At the end of test execution we collect execution data and shutdown
         // the runtime:
@@ -124,8 +176,11 @@ public final class CoverageTester {
         final CoverageBuilder coverageBuilder = new CoverageBuilder();
         final Analyzer analyzer = new Analyzer(executionData, coverageBuilder);
 
-        for(String className:CoCoClassLoader.getTargetNames()){
-            analyzer.analyzeClass(CoCoClassLoader.getOriginClassByte(className),className);
+//        for(String className:CoCoClassLoader.getTargetNames()){
+//
+//        }
+        for(String className:targetHashmap.keySet()){
+            analyzer.analyzeClass(targetHashmap.get(className),className);
         }
 
         // Let's dump some metrics and line coverage information:
@@ -143,6 +198,9 @@ public final class CoverageTester {
 //                        getColor(cc.getLine(i).getStatus()));
 //            }
         }
+
+        FileUtils.cleanUp(tempInstrTestPath,false);
+        FileUtils.cleanUp(tempInstrTargetPath,false);
 //        System.out.println(resultMap);
     }
 
@@ -205,6 +263,8 @@ public final class CoverageTester {
         return newResultMap;
     }
 
+
+
     /**
      * Entry point to run this examples as a Java application.
      *
@@ -214,7 +274,7 @@ public final class CoverageTester {
      *             in case of errors
      */
     public static void main(final String[] args) throws Exception {
-        new CoverageTester(System.out,new HashMap<>()).execute("data\\targets","data\\tests");
+//        new CoverageTester(System.out,new HashMap<>()).execute("data\\targets","data\\tests");
     }
 
 }

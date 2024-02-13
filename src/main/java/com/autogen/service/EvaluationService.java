@@ -1,6 +1,7 @@
 package com.autogen.service;
 
 import com.autogen.model.Code;
+import com.autogen.utils.FileUtils;
 import com.autogen.utils.Formatter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,20 +51,25 @@ public class EvaluationService {
      * @param raw
      * @return
      */
-    public synchronized Code evaluateTestFromGPT(String raw){
+    public synchronized Code evaluateTestFromGPT(String raw,HashMap<String,String> systemProperties){
         String code = Formatter.codeBlockFormatter(raw,"java");
 
+        // Better not to reconstruct this method.
         Code cpResult = writeTestFileToJavaFile(code,rootPath,programRootPath,testPath,libPath);
         System.out.println("Io and compile result: "+cpResult);
 
         try {
-            evaluateTest(0, targetPath,testPath);
+            evaluateTest(0, systemProperties);
         } catch (Exception e){
             log.error(e.getMessage());
             return Code.EVALUATION_ERROR;
         }
         try {
-            return analyseResult(0);
+            Code result = analyseResult(0);
+
+            //clean up to prepare for next round. If not, next evaluation will count the previous tests in.
+            FileUtils.cleanUp(testPath,true);
+            return result;
         } catch (Exception e){
             log.error(e.getMessage());
             return Code.EVALUATION_ANALYZE_ERROR;
@@ -77,27 +83,25 @@ public class EvaluationService {
      * @param type
      *      0: coverage test.<br>
      *      1: mutation test (Not implemented).
-     * @param targetPath
-     * @param testPath
      * @throws Exception
      */
-    public void evaluateTest(int type, String targetPath, String testPath) throws Exception {
+    public void evaluateTest(int type, HashMap<String,String> systemProperties) throws Exception {
         switch (type){
             case 0:
                 log.info("Running coverage test on test files at {}, the target file are at {}",
                         testPath,targetPath);
-                coverageTester.execute(targetPath,testPath);
+                coverageTester.execute(systemProperties);
                 log.info("The test result is: {}",coverageTester.getResultMap());
                 break;
             case 1:
-                evaluateTestMutation(targetPath,testPath);
+                evaluateTestMutation(systemProperties);
                 break;
             case 100:
                 log.info("Running coverage test on test files at {}, the target file are at {}",
                         testPath,targetPath);
                 log.info("The result will be cloned as baseline.");
 
-                coverageTester.execute(targetPath,testPath);
+                coverageTester.execute(systemProperties);
                 coverageThresholds = coverageTester.cloneResultMap();
 
                 log.info("The baseline is: {}",coverageThresholds);
@@ -106,7 +110,7 @@ public class EvaluationService {
                 break;
         }
     }
-    private void evaluateTestMutation(String testPath, String targetPath){
+    private void evaluateTestMutation(HashMap<String,String> systemProperties){
         try{
             throw new Exception();
         } catch (Exception e) {
