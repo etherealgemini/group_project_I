@@ -40,3 +40,4 @@ data/temp/
 data/core/script.bat
 
 
+log/RollingFileAppender.log
