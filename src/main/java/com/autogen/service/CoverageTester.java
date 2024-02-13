@@ -10,6 +10,7 @@ import java.util.*;
 import com.autogen.utils.FileUtils;
 import com.autogen.utils.ExtClasspathLoader;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jacoco.core.analysis.Analyzer;
 import org.jacoco.core.analysis.CoverageBuilder;
 import org.jacoco.core.analysis.IClassCoverage;
@@ -29,9 +30,10 @@ import org.slf4j.LoggerFactory;
  * dumped. To analyze the coverage of test, you need to load both the target and test class,
  * then execute the test class and analyze the target coverage.
  */
+@Slf4j
 public final class CoverageTester {
 
-    private static final Logger logger = LoggerFactory.getLogger(EvaluationService.class);
+//    private static final Logger logger = LoggerFactory.getLogger(EvaluationService.class);
     private final PrintStream out;
     private final HashMap<String,Double> resultMap;
     private boolean logging = true;
@@ -127,6 +129,7 @@ public final class CoverageTester {
 //        }
 
         ArrayList<URL> urls = new ArrayList<>();
+        urls = FileUtils.loadJarFiles(urls,new File(systemProperties.get("libPath")));
         urls.add(new File(systemProperties.get("libPath")+"/").toURI().toURL());
         urls.add(new File(tempTestFile.getAbsolutePath()+"/").toURI().toURL());
         urls.add(new File(tempTargetFile.getAbsolutePath()+"/").toURI().toURL());
@@ -136,15 +139,25 @@ public final class CoverageTester {
         URLClassLoader classLoader = new URLClassLoader(urls.toArray(new URL[0]));
 
         // Here we execute our test target class by reflection, which should be instrumented:
+        for(String className:targetHashmap.keySet()){
+            Class<?> test = Class.forName(className,false,classLoader);
+        }
         for(String className:testHashmap.keySet()){
             Class<?> test = Class.forName(className,false,classLoader);
+            if(className.contains("scaffolding")){
+                continue;
+            }
             Object testO = test.newInstance();
             Method[] testMethods = test.getDeclaredMethods();
-            //会尝试排序，但不保证能按照原定义顺序。
+            //尝试排序，但不保证能按照原定义顺序。
             Arrays.sort(testMethods, Comparator.comparing(Method::getName));
             for(Method mo:testMethods){
                 if(Arrays.stream(mo.getDeclaredAnnotations()).anyMatch(annotation -> annotation.toString().contains("Test"))){
-                    mo.invoke(testO);
+                    try {
+                        mo.invoke(testO);
+                    } catch (Exception e){
+                        log.warn("Test case "+mo.getName()+" failed.",e);
+                    }
                 }
             }
         }
@@ -199,6 +212,14 @@ public final class CoverageTester {
 //            }
         }
 
+        if(logging){
+            out.println("--------------");
+            out.println("Coverage Result:");
+            for(String type:resultMap.keySet()){
+                out.printf("%s: %.3f%n",type,1-resultMap.get(type));
+            }
+        }
+
         FileUtils.cleanUp(tempInstrTestPath,false);
         FileUtils.cleanUp(tempInstrTargetPath,false);
 //        System.out.println(resultMap);
@@ -247,14 +268,14 @@ public final class CoverageTester {
      */
     public HashMap<String, Double> getResultMap() {
         if(resultMap.isEmpty()){
-            logger.warn("The result dictionary is empty, may not execute yet!");
+            log.warn("The result dictionary is empty, may not execute yet!");
         }
         return resultMap;
     }
 
     public HashMap<String, Double> cloneResultMap() {
         if(resultMap.isEmpty()){
-            logger.warn("The result dictionary is empty, may not execute yet!");
+            log.warn("The result dictionary is empty, may not execute yet!");
         }
         HashMap<String, Double> newResultMap = new HashMap<>();
         for(String k:resultMap.keySet()){

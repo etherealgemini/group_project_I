@@ -16,6 +16,7 @@ import java.util.*;
 
 import static com.autogen.utils.CommandLineUtils.run_cmd;
 import static com.autogen.utils.CommandLineUtils.run_cmd_example;
+import static com.autogen.utils.CompileUtils.compile;
 import static com.autogen.utils.FileUtils.loadJarFiles;
 import static com.autogen.utils.IOUtils.*;
 import static com.autogen.utils.IOUtils.getPropertiesString;
@@ -150,6 +151,19 @@ public class GeneralTest {
 
     @Test
     public void executeTest() throws Exception {
+        HashMap result = new HashMap();
+        CoverageTester tester = new CoverageTester(System.out,result,true);
+        tester.execute(systemProperties);
+    }
+
+    @Test
+    public void compileTest2(){
+        compile(systemProperties.get("rootPath"),systemProperties.get("libPath"),
+                systemProperties.get("testPath"),systemProperties.get("evosuiteTestPath"));
+    }
+
+    @Test
+    public void executeTest2() throws Exception{
         HashMap result = new HashMap();
         CoverageTester tester = new CoverageTester(System.out,result,true);
         tester.execute(systemProperties);

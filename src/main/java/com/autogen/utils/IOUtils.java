@@ -106,6 +106,7 @@ public class IOUtils {
 
 
     public static Pattern keyMatchLimitCount = Pattern.compile("\\$\\{([a-zA-Z]+)}");
+
     /**
      * A convenient getString() extension with "${param}" replacement.
      * @param resource

@@ -8,9 +8,6 @@ import com.autogen.utils.PromptType;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
@@ -28,7 +25,7 @@ public class MainController {
     private ResourceBundle autogen;
     private ChatGPTService chatGPTService;
     private HashMap<String,String> systemProperties;
-
+    private EvaluationService evaluationService;
 
     public void launch(){
         //0. 系统启动消息
@@ -38,18 +35,7 @@ public class MainController {
         //1. 读入资源文件
         systemProperties = new HashMap<>();
         autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
-
-//        String humanTestInputPath = getPropertiesString(autogen,"originTestInputPath");
-//        String programRootPath = getPropertiesString(autogen,"programRootPath");
-//        String corePath = getPropertiesString(autogen,"corePath");
-//        String libPath = getPropertiesString(autogen,"libPath");
-//        String testPath = getPropertiesString(autogen,"testPath");
-//        String targetPath = getPropertiesString(autogen,"targetPath");
-//        String rootPath = getPropertiesString(autogen,"rootPath");
-//        String evosuitePath = getPropertiesString(autogen,"evosuitePath");
-//        String humanTestPath = getPropertiesString(autogen,"humanTestPath");
-//        String evosuiteTestPath = getPropertiesString(autogen,"evosuiteTestPath");
-        loadPathProperties();
+        loadSystemProperties();
 
         //2.1 编译目标程序文件至targetPath供后续评测时使用
         boolean comp = compile(systemProperties.get("programRootPath"),systemProperties.get("libPath"),
@@ -61,21 +47,11 @@ public class MainController {
         //2.2 pdf转string
         String PDFContent = parsePDFtoString(getPropertiesString(autogen,"pdfInputPath"));
 
-        //2.3 后台运行Evosuite（耗时操作）
-        String cmdOrigin = readFile("data\\core\\script_raw.bat");
-        cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", systemProperties.get("evosuitePath"));
-        cmdOrigin = cmdOrigin.replace("TARGET_PATH",systemProperties.get("targetPath"));
-        cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH",systemProperties.get("rootPath"));//-target TARGET_PATH -base_dir BASE_DIR_PATH
-        writeFile("data\\core\\script.bat",cmdOrigin);
-
-//        Thread evo = new Thread(()->{
-//            run_cmd("data\\core\\script.bat");
-//            compile(programRootPath,libPath,testPath,evosuiteTestPath);
-//        });
-//        evo.start();
+        //2.3 后台运行Evosuite，生成测试、编译，并进行评测（耗时操作）
+        Thread evo = new Thread(this::runEvosuite);
 
         //2.4 后台进行人工测试评测，结果将作为Baseline（耗时操作）
-        EvaluationService evaluationService =
+        evaluationService =
                 EvaluationService.getInstance(systemProperties.get("programRootPath"),systemProperties.get("targetPath"),
                         systemProperties.get("testPath"),systemProperties.get("rootPath"),systemProperties.get("libPath"));
 
@@ -100,6 +76,12 @@ public class MainController {
 
         //3.2 发送测试
         //等待evosuite子线程完成。
+        try {
+            evo.join();
+        } catch (InterruptedException e){
+            log.error("evosuite子线程被异常中断",e);
+            return;
+        }
 //        while(evo.isAlive()){}
         File testFilePath = new File(systemProperties.get("humanTestInputPath"));
         File[] testFiles = testFilePath.listFiles();
@@ -131,7 +113,25 @@ public class MainController {
         System.out.println();
     }
 
-    private void loadPathProperties() {
+    private void runEvosuite() {
+        String cmdOrigin = readFile("data\\core\\script_raw.bat");
+        cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", systemProperties.get("evosuitePath"));
+        cmdOrigin = cmdOrigin.replace("TARGET_PATH",systemProperties.get("targetPath"));
+        cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH",systemProperties.get("rootPath"));//-target TARGET_PATH -base_dir BASE_DIR_PATH
+        writeFile("data\\core\\script.bat",cmdOrigin);
+
+        run_cmd("data\\core\\script.bat");
+        compile(systemProperties.get("rootPath"),systemProperties.get("libPath"),
+                systemProperties.get("testPath"),systemProperties.get("evosuiteTestPath"));
+
+        try{
+            evaluationService.evaluateTest(0,systemProperties);
+        } catch (Exception e){
+            log.error("Evosuite评测异常",e);
+        }
+    }
+
+    private void loadSystemProperties() {
         log.info("Load path configuration......");
         systemProperties.put("originTestInputPath",getPropertiesString(autogen,"originTestInputPath"));
         systemProperties.put("programRootPath",getPropertiesString(autogen,"programRootPath"));

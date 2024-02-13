@@ -46,6 +46,7 @@ public class FileMemoryCoCoClassLoader extends ClassLoader {
      * @param isTest
      *      Mark whether this is test-class path, only affect where the class file name stored in.
      */
+    //TODO: 本质是读入一个文件夹下的所有.class文件，那么应该可以作为一个文件工具方法
     public void loadNormalClass(String rootClassPath, boolean isTest){
         File classPath = new File(rootClassPath);
         Deque<File> stack = new ArrayDeque<>();
@@ -127,6 +128,7 @@ public class FileMemoryCoCoClassLoader extends ClassLoader {
      * @return
      * @throws ClassNotFoundException
      */
+    @Override
     public Class<?> loadClass(final String name)
             throws ClassNotFoundException {
         final byte[] bytes;

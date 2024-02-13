@@ -140,7 +140,22 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.evosuite/evosuite-runtime -->
+        <dependency>
+            <groupId>org.evosuite</groupId>
+            <artifactId>evosuite-runtime</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.evosuite/evosuite -->
+        <dependency>
+            <groupId>org.evosuite</groupId>
+            <artifactId>evosuite</artifactId>
+            <version>1.0.6</version>
+            <type>pom</type>
+        </dependency>
+
+
+        <!--        <dependency>-->
 <!--            <groupId>org.slf4j</groupId>-->
 <!--            <artifactId>slf4j-simple</artifactId>-->
 <!--            <version>${slf4j.version}</version>-->
