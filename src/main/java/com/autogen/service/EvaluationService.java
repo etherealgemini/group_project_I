@@ -128,11 +128,12 @@ public class EvaluationService {
                 evaluateTestMutation(systemProperties);
                 break;
             default:
+                throw new MethodNotImplementException();
         }
     }
     private void evaluateTestMutation(HashMap<String,String> systemProperties){
         try{
-            throw new Exception();
+            throw new MethodNotImplementException();
         } catch (Exception e) {
             e.printStackTrace();
         }
