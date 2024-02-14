@@ -4,33 +4,41 @@ import com.autogen.model.Code;
 import com.autogen.model.FancyOutput;
 import com.autogen.service.ChatGPTService;
 import com.autogen.service.EvaluationService;
+import com.autogen.utils.MiscUtils;
 import com.autogen.utils.PromptType;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
-import static com.autogen.utils.CompileUtils.compile;
 import static com.autogen.utils.CommandLineUtils.run_cmd;
+import static com.autogen.utils.CompileUtils.compile;
 import static com.autogen.utils.IOUtils.*;
 import static com.autogen.utils.PDFParser.parsePDFtoString;
 import static com.autogen.utils.PromptUtils.prompting;
 
+/**
+ * @author Zheng, K. S.
+ * @version 1.0
+ * <p>
+ * 这个类控制整个系统的运行流程，并对外暴露系统的启动api。
+ */
 @Slf4j
 public class MainController {
 
     private ResourceBundle autogen;
     private ChatGPTService chatGPTService;
-    private HashMap<String,String> systemProperties;
+    private HashMap<String, String> systemProperties;
     private EvaluationService evaluationService;
 
-    public void launch(){
+    /**
+     * 启动系统。
+     */
+    public void launch() {
+        // 该方法不负责任何系统内部的实现，仅完成调用。具体实现委派给了具体类。
         //0. 系统启动消息
         System.out.println(FancyOutput.SYSTEM_LAUNCH.getStr());
-        System.out.println();
+        System.out.println("AutoGen is launched at: " + MiscUtils.getNow());
 
         //1. 读入资源文件
         systemProperties = new HashMap<>();
@@ -38,71 +46,79 @@ public class MainController {
         loadSystemProperties();
 
         //2.1 编译目标程序文件至targetPath供后续评测时使用
-        boolean comp = compile(systemProperties.get("programRootPath"),systemProperties.get("libPath"),
-                systemProperties.get("targetPath"),systemProperties.get("programRootPath"));
-        System.out.println();
-        comp = compile(systemProperties.get("programRootPath"),systemProperties.get("libPath"),
-                systemProperties.get("humanTestPath"),systemProperties.get("humanTestInputPath"));
+        //NOTE: 没有用systemProperties重构compile方法，因为有可能重构后看不懂输入。
+        boolean err = compile(systemProperties.get("programRootPath"), systemProperties.get("libPath"),
+                systemProperties.get("targetPath"), systemProperties.get("programRootPath"));
+        CHECKERR(err);
+        err = compile(systemProperties.get("programRootPath"), systemProperties.get("libPath"),
+                systemProperties.get("humanTestPath"), systemProperties.get("humanTestInputPath"));
+        CHECKERR(err);
 
         //2.2 pdf转string
-        String PDFContent = parsePDFtoString(getPropertiesString(autogen,"pdfInputPath"));
+        String PDFContent = parsePDFtoString(getPropertiesString(autogen, "pdfInputPath"));
 
         //2.3 后台运行Evosuite，生成测试、编译，并进行评测（耗时操作）
         Thread evo = new Thread(this::runEvosuite);
 
         //2.4 后台进行人工测试评测，结果将作为Baseline（耗时操作）
         evaluationService =
-                EvaluationService.getInstance(systemProperties.get("programRootPath"),systemProperties.get("targetPath"),
-                        systemProperties.get("testPath"),systemProperties.get("rootPath"),systemProperties.get("libPath"));
+                EvaluationService.getInstance(systemProperties); //传入系统配置
 
         new Thread(() -> {
-                    try {
-                        evaluationService.evaluateTest(100,systemProperties);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }).start();
+            try {
+                evaluationService.evaluateTest(101);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
 
         //3. prompt（第一次输入）
-        chatGPTService = ChatGPTService.getInstance();
-        chatGPTService.initializeChatService();
+        chatGPTService = ChatGPTService.getInstance(); // 不需要暴露系统配置的话，systemProperties就不必给他了
+        chatGPTService.initializeChatService(systemProperties.get("ChatGPTApi"));
 
         ArrayList<Integer> respPointer = new ArrayList<>();
         ArrayList<String> responses = new ArrayList<>();
 
         //3.1 发送题目pdf
         String msg = prompting(PDFContent, PromptType.PDF_SUBMIT);
-        String response = chat(msg,responses,respPointer);
+        String response = chatGPTService.chat(msg, responses, respPointer);
 
         //3.2 发送测试
         //等待evosuite子线程完成。
         try {
             evo.join();
-        } catch (InterruptedException e){
-            log.error("evosuite子线程被异常中断",e);
+        } catch (InterruptedException e) {
+            log.error("evosuite子线程被异常中断", e);
             return;
         }
-//        while(evo.isAlive()){}
-        File testFilePath = new File(systemProperties.get("humanTestInputPath"));
-        File[] testFiles = testFilePath.listFiles();
-        msg = prompting(readFile(testFiles[0].getAbsolutePath()),PromptType.REFINE_TEST);
 
+//        while(evo.isAlive()){}
+        //TODO: 这里有来自Evosuite的一系列的，针对不同class的测试文件，需要进行合适的prompt来指导GPT生成测试。
+        File testFilePath = new File(systemProperties.get("evosuiteTestPath"));
+        File[] testFiles = testFilePath.listFiles();
+
+
+
+//        msg = prompting(readFile(testFiles[0].getAbsolutePath()), PromptType.REFINE_TEST);
 //        msg = prompting(readFile(?),PromptType.INITIAL_TEST_SUBMIT);
-        response = chat(msg,responses,respPointer);
+
+        response = chatGPTService.chat(msg, responses, respPointer);
 
         //4. 测试GPT结果
-        Code evaluateResult = evaluationService.evaluateTestFromGPT(response,systemProperties);
+        Code evaluateResult = evaluationService.evaluateTestFromGPT(response);
 
         //5. 若满足输出条件，则10，否则7.
         boolean condition = evaluateResult.equals(Code.EVALUATION_PASS);
-        while(!condition){
+        while (!condition) {
             //7. prompt（修正）
-            String testContent = null;
-            msg = prompting(testContent,PromptType.REFINE_TEST);
-            response = chat(msg,responses,respPointer);
+            testFilePath = new File(systemProperties.get("GPTTestPath"));
+            File testFile = Objects.requireNonNull(testFilePath.listFiles())[0];
+            //TODO: 给gpt生成的test进行prompt来进行修正。
+//            msg = prompting(testContent, PromptType.REFINE_TEST);
+            response = chatGPTService.chat(msg, responses, respPointer);
 
             //8. evaluation
-            evaluateResult = evaluationService.evaluateTestFromGPT(response,systemProperties);
+            evaluateResult = evaluationService.evaluateTestFromGPT(response);
 
             //9. 重复7-8，直到满足输出条件
             condition = evaluateResult.equals(Code.EVALUATION_PASS);
@@ -113,46 +129,52 @@ public class MainController {
         System.out.println();
     }
 
+    /**
+     * 这个方法适用于某错误是不可容忍的情况。
+     * 当err为真时，抛出运行时异常。
+     * @param err
+     *      Error flag.
+     * @throws RuntimeException
+     */
+    private void CHECKERR(boolean err) throws RuntimeException {
+        if (!err) {
+            log.error("Error occurred.");
+            throw new RuntimeException();
+        }
+    }
+
     private void runEvosuite() {
         String cmdOrigin = readFile("data\\core\\script_raw.bat");
         cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", systemProperties.get("evosuitePath"));
-        cmdOrigin = cmdOrigin.replace("TARGET_PATH",systemProperties.get("targetPath"));
-        cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH",systemProperties.get("rootPath"));//-target TARGET_PATH -base_dir BASE_DIR_PATH
-        writeFile("data\\core\\script.bat",cmdOrigin);
+        cmdOrigin = cmdOrigin.replace("TARGET_PATH", systemProperties.get("targetPath"));
+        cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH", systemProperties.get("rootPath"));//-target TARGET_PATH -base_dir BASE_DIR_PATH
+        writeFile("data\\core\\script.bat", cmdOrigin);
 
         run_cmd("data\\core\\script.bat");
-        compile(systemProperties.get("rootPath"),systemProperties.get("libPath"),
-                systemProperties.get("testPath"),systemProperties.get("evosuiteTestPath"));
+        compile(systemProperties.get("rootPath"), systemProperties.get("libPath"),
+                systemProperties.get("testPath"), systemProperties.get("evosuiteTestPath"));
 
-        try{
-            evaluationService.evaluateTest(0,systemProperties);
-        } catch (Exception e){
-            log.error("Evosuite评测异常",e);
+        try {
+            evaluationService.evaluateTest(101);
+        } catch (Exception e) {
+            log.error("Evosuite评测异常", e);
         }
     }
 
     private void loadSystemProperties() {
         log.info("Load path configuration......");
-        systemProperties.put("originTestInputPath",getPropertiesString(autogen,"originTestInputPath"));
-        systemProperties.put("programRootPath",getPropertiesString(autogen,"programRootPath"));
-        systemProperties.put("corePath",getPropertiesString(autogen,"corePath"));
-        systemProperties.put("libPath",getPropertiesString(autogen,"libPath"));
-        systemProperties.put("testPath",getPropertiesString(autogen,"testPath"));
-        systemProperties.put("targetPath",getPropertiesString(autogen,"targetPath"));
-        systemProperties.put("rootPath",getPropertiesString(autogen,"rootPath"));
-        systemProperties.put("evosuitePath",getPropertiesString(autogen,"evosuitePath"));
-        systemProperties.put("humanTestPath",getPropertiesString(autogen,"humanTestPath"));
-        systemProperties.put("evosuiteTestPath",getPropertiesString(autogen,"evosuiteTestPath"));
-    }
-
-    private String chat(String prompt,
-                      ArrayList<String> responses,
-                      ArrayList<Integer> respPointer) {
-        log.info("Send prompt......");
-        ArrayList<String> temp = chatGPTService.chat(prompt);
-        responses.addAll(temp);
-        respPointer.add(responses.size()-1);
-        return temp.get(0);
+        systemProperties.put("originTestInputPath", getPropertiesString(autogen, "originTestInputPath"));
+        systemProperties.put("programRootPath", getPropertiesString(autogen, "programRootPath"));
+        systemProperties.put("corePath", getPropertiesString(autogen, "corePath"));
+        systemProperties.put("libPath", getPropertiesString(autogen, "libPath"));
+        systemProperties.put("testPath", getPropertiesString(autogen, "testPath"));
+        systemProperties.put("targetPath", getPropertiesString(autogen, "targetPath"));
+        systemProperties.put("rootPath", getPropertiesString(autogen, "rootPath"));
+        systemProperties.put("evosuitePath", getPropertiesString(autogen, "evosuitePath"));
+        systemProperties.put("humanTestPath", getPropertiesString(autogen, "humanTestPath"));
+        systemProperties.put("evosuiteTestPath", getPropertiesString(autogen, "evosuiteTestPath"));
+        systemProperties.put("GPTTestPath", getPropertiesString(autogen, "GPTTestPath"));
+        systemProperties.put("ChatGPTApi", getPropertiesString(autogen, "ChatGPTApi"));
     }
 
 }

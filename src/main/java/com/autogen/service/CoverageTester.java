@@ -59,8 +59,8 @@ public final class CoverageTester {
 
 
 
-    public void execute(HashMap<String,String> systemProperties) throws Exception {
-        String testPath = systemProperties.get("testPath");
+    public void execute(HashMap<String,String> systemProperties,String testPath) throws Exception {
+//        String testPath = systemProperties.get("testPath");
         String targetPath = systemProperties.get("targetPath");
         String rootPath = systemProperties.get("rootPath");
 
@@ -101,10 +101,10 @@ public final class CoverageTester {
         File tempTargetFile = new File(tempInstrTargetPath);
         File tempTestFile = new File(tempInstrTestPath);
         if (!tempTargetFile.exists()){
-            tempTargetFile.mkdirs();
+            boolean err = tempTargetFile.mkdirs();
         }
         if (!tempTestFile.exists()){
-            tempTestFile.mkdirs();
+            boolean err = tempTestFile.mkdirs();
         }
 
         for(String className:targetHashmap.keySet()){
@@ -225,13 +225,13 @@ public final class CoverageTester {
 //        System.out.println(resultMap);
     }
 
-    private InputStream getTargetClass(File name) throws IOException {
-        return Files.newInputStream(name.toPath());
-    }
-    private InputStream getTargetClass(final String name) {
-        final String resource = '/' + name.replace('.', '/') + ".class";
-        return getClass().getResourceAsStream(resource);
-    }
+//    private InputStream getTargetClass(File name) throws IOException {
+//        return Files.newInputStream(name.toPath());
+//    }
+//    private InputStream getTargetClass(final String name) {
+//        final String resource = '/' + name.replace('.', '/') + ".class";
+//        return getClass().getResourceAsStream(resource);
+//    }
 
     private void printCounter(final String unit, final ICounter counter, HashMap<String,Double> resultMap) {
         final Integer missed = Integer.valueOf(counter.getMissedCount());

@@ -59,7 +59,7 @@ public class EvaluationServiceTest {
                 "}\r\n" +
                 "```";
 
-        EvaluationService controller = EvaluationService.getInstance();
-        System.out.println(controller.evaluateTestFromGPT(temp,systemProperties));
+        EvaluationService controller = EvaluationService.getInstance(systemProperties);
+        System.out.println(controller.evaluateTestFromGPT(temp));
     }
 }

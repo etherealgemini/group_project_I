@@ -35,25 +35,14 @@ public class GeneralTest {
     private static String humanTestPath;
     private static String evosuiteTestPath;
     private static HashMap<String,String> systemProperties = new HashMap<>();
-    private static EvaluationService evaluationService =
-            EvaluationService.getInstance(programRootPath,targetPath,testPath,rootPath,libPath);
+//    private static EvaluationService evaluationService =
+//            EvaluationService.getInstance(programRootPath,targetPath,testPath,rootPath,libPath);
+    private static final EvaluationService evaluationService = EvaluationService.getInstance(systemProperties);
 
 
     @Before
     public void init() {
         loadPathProperties();
-        //1. 从资源文件读入各类路径
-//        autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
-//        humanTestInputPath = getPropertiesString(autogen, "originTestInputPath");
-//        programRootPath = getPropertiesString(autogen, "programRootPath");
-//        corePath = getPropertiesString(autogen, "corePath");
-//        libPath = getPropertiesString(autogen, "libPath");
-//        testPath = getPropertiesString(autogen, "testPath");
-//        targetPath = getPropertiesString(autogen, "targetPath");
-//        rootPath = getPropertiesString(autogen, "rootPath");
-//        evoPath = getPropertiesString(autogen, "evosuitePath");
-//        humanTestPath = getPropertiesString(autogen, "humanTestPath");
-//        evosuiteTestPath = getPropertiesString(autogen,"evosuiteTestPath");
     }
 
     @Test
@@ -114,7 +103,7 @@ public class GeneralTest {
 
 //        evaluationService.evaluateTest(100,systemProperties);
 
-        System.out.println(evaluationService.evaluateTestFromGPT(temp,systemProperties));
+        System.out.println(evaluationService.evaluateTestFromGPT(temp));
     }
 
     @Test
@@ -153,20 +142,17 @@ public class GeneralTest {
     public void executeTest() throws Exception {
         HashMap result = new HashMap();
         CoverageTester tester = new CoverageTester(System.out,result,true);
-        tester.execute(systemProperties);
+        tester.execute(systemProperties,systemProperties.get("testPath"));
     }
 
     @Test
-    public void compileTest2(){
+    public void compileAndExecuteTest() throws Exception {
         compile(systemProperties.get("rootPath"),systemProperties.get("libPath"),
                 systemProperties.get("testPath"),systemProperties.get("evosuiteTestPath"));
-    }
 
-    @Test
-    public void executeTest2() throws Exception{
         HashMap result = new HashMap();
         CoverageTester tester = new CoverageTester(System.out,result,true);
-        tester.execute(systemProperties);
+        tester.execute(systemProperties,systemProperties.get("evosuiteTestPath"));
     }
 
 
