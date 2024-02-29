@@ -37,7 +37,7 @@ build/
 
 data/evosuite-tests/
 data/temp/
-data/core/script.bat
+data/core/evo_script.bat
 src/test/java/misc/
 
 log/RollingFileAppender.log

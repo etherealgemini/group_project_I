@@ -97,15 +97,15 @@ public class MainController {
         File testFilePath = new File(systemProperties.get("evosuiteTestPath"));
         File[] testFiles = testFilePath.listFiles();
 
-
+        //4. 测试GPT结果
+        Code evaluateResult = evaluationService.evaluateTestFromGPT(response);
 
 //        msg = prompting(readFile(testFiles[0].getAbsolutePath()), PromptType.REFINE_TEST);
 //        msg = prompting(readFile(?),PromptType.INITIAL_TEST_SUBMIT);
 
         response = chatGPTService.chat(msg, responses, respPointer);
 
-        //4. 测试GPT结果
-        Code evaluateResult = evaluationService.evaluateTestFromGPT(response);
+        
 
         //5. 若满足输出条件，则10，否则7.
         boolean condition = evaluateResult.equals(Code.EVALUATION_PASS);
@@ -115,10 +115,11 @@ public class MainController {
             File testFile = Objects.requireNonNull(testFilePath.listFiles())[0];
             //TODO: 给gpt生成的test进行prompt来进行修正。
 //            msg = prompting(testContent, PromptType.REFINE_TEST);
-            response = chatGPTService.chat(msg, responses, respPointer);
 
             //8. evaluation
             evaluateResult = evaluationService.evaluateTestFromGPT(response);
+
+            response = chatGPTService.chat(msg, responses, respPointer);
 
             //9. 重复7-8，直到满足输出条件
             condition = evaluateResult.equals(Code.EVALUATION_PASS);
@@ -144,13 +145,13 @@ public class MainController {
     }
 
     private void runEvosuite() {
-        String cmdOrigin = readFile("data\\core\\script_raw.bat");
+        String cmdOrigin = readFile("data\\core\\evo_script_raw.bat");
         cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", systemProperties.get("evosuitePath"));
         cmdOrigin = cmdOrigin.replace("TARGET_PATH", systemProperties.get("targetPath"));
         cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH", systemProperties.get("rootPath"));//-target TARGET_PATH -base_dir BASE_DIR_PATH
-        writeFile("data\\core\\script.bat", cmdOrigin);
+        writeFile("data\\core\\evo_script.bat", cmdOrigin);
 
-        run_cmd("data\\core\\script.bat");
+        run_cmd("data\\core\\evo_script.bat");
         compile(systemProperties.get("rootPath"), systemProperties.get("libPath"),
                 systemProperties.get("testPath"), systemProperties.get("evosuiteTestPath"));
 
@@ -178,3 +179,8 @@ public class MainController {
     }
 
 }
+
+/*
+TODO: 1. 设计prompt确保gpt总是会返回一个完整的测试文件
+TODO: 2.
+ */

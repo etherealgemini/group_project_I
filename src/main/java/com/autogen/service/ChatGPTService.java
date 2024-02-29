@@ -38,7 +38,7 @@ public class ChatGPTService {
         log.info("Send prompt......");
         ArrayList<String> temp = chat(prompt);
         responses.addAll(temp);
-        respPointer.add(responses.size()-1);
+        respPointer.add(respPointer.get(respPointer.size()-1) + responses.size()-1);
         return temp.get(0);
     }
 
@@ -73,5 +73,10 @@ public class ChatGPTService {
             history.add(String.format("{role:ChatGPT,content:%s}",e.getMessage().getContent()));
         });
         return resp;
+    }
+    public boolean close(){
+        openAiClient = null;
+        history = null;
+        return true;
     }
 }

@@ -7,6 +7,7 @@ import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,7 +39,7 @@ public class CompilerTest {
 
         Iterable<? extends JavaFileObject> files = null;
         files = fileManager.getJavaFileObjectsFromFiles(
-                List.of(Objects.requireNonNull(javaFile.listFiles((dir, name) -> name.endsWith(".java"))))
+                Arrays.asList(Objects.requireNonNull(javaFile.listFiles((dir, name) -> name.endsWith(".java"))))
         );
         files.forEach(System.out::println);
     }

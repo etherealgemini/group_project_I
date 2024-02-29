@@ -66,7 +66,7 @@ public class EvaluationService {
         System.out.println("Io and compile result: "+cpResult);
 
         try {
-            evaluateTest(0, systemProperties);
+            evaluateTest(102);
         } catch (Exception e){
             log.error(e.getMessage());
             return Code.EVALUATION_ERROR;

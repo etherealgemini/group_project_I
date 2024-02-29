@@ -30,7 +30,7 @@ public class prompt {
 
         Scanner s = new Scanner(System.in);
         history.add("以下是历史记录，你可以作为参考但不要返回在回答里");
-        run_cmd("D:\\temp\\script_raw.bat");
+        run_cmd("D:\\temp\\evo_script_raw.bat");
 
         // 新增：读取生成的 .test 文件内容并加入 history 列表
         String testFileContent = readTestFile("D:\\temp\\output.test");

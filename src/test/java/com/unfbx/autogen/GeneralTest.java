@@ -69,16 +69,16 @@ public class GeneralTest {
         //1. 读入资源文件
 
 
-        String cmdOrigin = readFile("data\\core\\script_raw.bat");
+        String cmdOrigin = readFile("data\\core\\evo_script_raw.bat");
         cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", evoPath);
         cmdOrigin = cmdOrigin.replace("TARGET_PATH", programRootPath);
         cmdOrigin = cmdOrigin.replace("TEST_STORAGE_PATH", corePath);//-target TARGET_PATH -base_dir TEST_STORAGE_PATH
-        writeFile("data\\core\\script.bat", cmdOrigin);
+        writeFile("data\\core\\evo_script.bat", cmdOrigin);
     }
 
     @Test
     public void cmdTest3() {
-        run_cmd("data\\core\\script.bat");
+        run_cmd("data\\core\\evo_script.bat");
     }
 
     @Test

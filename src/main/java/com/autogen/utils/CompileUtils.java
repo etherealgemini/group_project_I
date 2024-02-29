@@ -8,10 +8,7 @@ import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static com.autogen.utils.IOUtils.getFileName;
 
@@ -36,7 +33,7 @@ public class CompileUtils {
 
         //Do not want to dump all .class files into destination,
         //will extract the target file to dest later
-        List<String> options = new ArrayList<>(List.of("-d", "."));
+        List<String> options = new ArrayList<>(Arrays.asList("-d", "."));
         List<String> jars;
 
 
@@ -54,7 +51,7 @@ public class CompileUtils {
 
         if (jarPath!=null){
             log.info("Adding third-party jar dependencies' in directory: {}", jarPath);
-            jars = classPathConfig(new ArrayList<>(List.of(rootPath,dirFilePath)),jarPath);
+            jars = classPathConfig(new ArrayList<>(Arrays.asList(rootPath,dirFilePath)),jarPath);
             options.addAll(jars);
         }
 
@@ -63,7 +60,7 @@ public class CompileUtils {
                 files = fileManager.getJavaFileObjectsFromStrings(
                                 Collections.singletonList(filePath));
             } else {
-                javaFiles = List.of(Objects.requireNonNull(javaFile.listFiles((dir, name) -> name.endsWith(".java"))));
+                javaFiles = Arrays.asList(Objects.requireNonNull(javaFile.listFiles((dir, name) -> name.endsWith(".java"))));
                 files = fileManager.getJavaFileObjectsFromFiles(javaFiles);
             }
         }else {
