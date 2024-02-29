@@ -6,11 +6,17 @@ import com.autogen.utils.FileUtils;
 import com.autogen.utils.Formatter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.autogen.utils.IOUtils.writeTestFileToJavaFile;
+import static com.autogen.utils.CommandLineUtils.run_cmd;
+import static com.autogen.utils.FileUtils.getClassesFiles;
+import static com.autogen.utils.FileUtils.getClassesNames;
+import static com.autogen.utils.IOUtils.*;
+import static com.autogen.utils.MiscUtils.arrayToString;
 
 @Slf4j
 public class EvaluationService {
@@ -125,18 +131,74 @@ public class EvaluationService {
                 log.info("The test result is: {}",coverageTester.getResultMap());
                 break;
             case 200:
-                evaluateTestMutation(systemProperties);
+                //coverage test baseline
+                log.info("Running mutation test on test files at {}, the target file are at {}",
+                        systemProperties.get("humanTestPath"),systemProperties.get("targetPath"));
+                log.info("The result will be cloned as baseline.");
+
+                evaluateTestMutation(systemProperties, systemProperties.get("testPath"));
+                coverageThresholds = coverageTester.cloneResultMap();
+
+                log.info("The baseline is: {}",coverageThresholds);
+                break;
+            case 201:
+                //coverage test evosuite
+                log.info("Running mutation test on test files at {}, the target file are at {}",
+                        systemProperties.get("testPath"),systemProperties.get("targetPath"));
+                evaluateTestMutation(systemProperties, systemProperties.get("testPath"));
+                log.info("The test result is: {}",coverageTester.getResultMap());
+                break;
+            case 202:
+                //coverage test gpt
+                log.info("Running mutation test on test files at {}, the target file are at {}",
+                        systemProperties.get("GPTTestPath"),systemProperties.get("targetPath"));
+                evaluateTestMutation(systemProperties, systemProperties.get("GPTTestPath"));
+                log.info("The test result is: {}",coverageTester.getResultMap());
+
                 break;
             default:
                 throw new MethodNotImplementException();
         }
     }
-    private void evaluateTestMutation(HashMap<String,String> systemProperties){
-        try{
-            throw new MethodNotImplementException();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+    /**
+     * Tested
+     * @param systemProperties
+     * @param testPath
+     */
+    private void evaluateTestMutation(HashMap<String,String> systemProperties,String testPath){
+        String cmdOrigin = readFile("data\\core\\PIT_script_raw.bat");
+        cmdOrigin = cmdOrigin.replace("TEST_PATH", testPath);
+        cmdOrigin = cmdOrigin.replace("TARGET_PATH", systemProperties.get("targetPath"));
+
+        StringBuilder libs = new StringBuilder();
+        libs.append(systemProperties.get("PITLibPath")).append("\\*;");
+        libs.append(systemProperties.get("Junit5LibPath")).append("\\*;");
+//        libs.append(systemProperties.get("Junit4LibPath")).append("\\*;");
+        libs.append(systemProperties.get("EvoLibPath")).append("\\*;");
+
+        libs.deleteCharAt(libs.length()-1);
+
+        cmdOrigin = cmdOrigin.replace("PIT_LIB", libs);
+        cmdOrigin = cmdOrigin.replace("REPORT_DIR", systemProperties.get("PITReportPath"));//-target TARGET_PATH -base_dir BASE_DIR_PATH
+
+        String[] tests_ = getClassesNames(testPath);
+        String[] targets_ = getClassesNames(systemProperties.get("targetPath"));
+
+        String tests = arrayToString(tests_,",");
+        String targets = arrayToString(targets_,",");
+
+        cmdOrigin = cmdOrigin.replace("TESTS", tests);
+        cmdOrigin = cmdOrigin.replace("TARGETS", targets);//-target TARGET_PATH -base_dir BASE_DIR_PATH
+
+        cmdOrigin = cmdOrigin.replace("SRC_DIR", systemProperties.get("rootPath"));
+
+        writeFile("data\\core\\PIT_script.bat", cmdOrigin);
+        run_cmd("data\\core\\PIT_script.bat");
+
+//        TESTS
+//        TARGETS
+
     }
 
     public Code analyseResult(int type) {

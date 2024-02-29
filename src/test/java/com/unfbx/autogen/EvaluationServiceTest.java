@@ -17,7 +17,7 @@ public class EvaluationServiceTest {
     @Before
     public void init() {
         autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
-        systemProperties = GeneralTest.loadPathProperties();
+        GeneralTest.loadPathProperties(systemProperties);
         //1. 从资源文件读入各类路径
 //        autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
 //        humanTestInputPath = getPropertiesString(autogen, "originTestInputPath");

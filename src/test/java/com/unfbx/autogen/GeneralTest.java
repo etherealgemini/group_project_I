@@ -42,7 +42,7 @@ public class GeneralTest {
 
     @Before
     public void init() {
-        loadPathProperties();
+        loadPathProperties(systemProperties);
     }
 
     @Test
@@ -157,18 +157,11 @@ public class GeneralTest {
 
 
 
-    public static HashMap<String,String> loadPathProperties() {
+    public static HashMap<String,String> loadPathProperties(HashMap<String,String> systemProperties) {
         autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
-        systemProperties.put("originTestInputPath",getPropertiesString(autogen,"originTestInputPath"));
-        systemProperties.put("programRootPath",getPropertiesString(autogen,"programRootPath"));
-        systemProperties.put("corePath",getPropertiesString(autogen,"corePath"));
-        systemProperties.put("libPath",getPropertiesString(autogen,"libPath"));
-        systemProperties.put("testPath",getPropertiesString(autogen,"testPath"));
-        systemProperties.put("targetPath",getPropertiesString(autogen,"targetPath"));
-        systemProperties.put("rootPath",getPropertiesString(autogen,"rootPath"));
-        systemProperties.put("evosuitePath",getPropertiesString(autogen,"evosuitePath"));
-        systemProperties.put("humanTestPath",getPropertiesString(autogen,"humanTestPath"));
-        systemProperties.put("evosuiteTestPath",getPropertiesString(autogen,"evosuiteTestPath"));
+        for (String key : autogen.keySet()) {
+            systemProperties.put(key,getPropertiesString(autogen,key));
+        }
         return systemProperties;
     }
 

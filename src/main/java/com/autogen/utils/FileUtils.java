@@ -36,6 +36,25 @@ public class FileUtils {
         return classFiles;
     }
 
+    public static String[] getClassesNames(String clazzPathStr){
+        File[] files = getClassesFiles(clazzPathStr);
+        return getClassesNames(files);
+    }
+
+    public static String[] getClassesNames(File[] files){
+        String[] s = null;
+        if (files != null) {
+            s = new String[files.length];
+            for (int i = 0; i< files.length;i++) {
+                File file = files[i];
+                String t = file.getName();
+                s[i] = t.substring(0, t.length() - 6);
+            }
+        }
+
+        return s;
+    }
+
     public static byte[] getFileByte(File file){
         if(file.exists()){
             byte[] bytes = new byte[0];

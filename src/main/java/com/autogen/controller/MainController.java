@@ -164,18 +164,21 @@ public class MainController {
 
     private void loadSystemProperties() {
         log.info("Load path configuration......");
-        systemProperties.put("originTestInputPath", getPropertiesString(autogen, "originTestInputPath"));
-        systemProperties.put("programRootPath", getPropertiesString(autogen, "programRootPath"));
-        systemProperties.put("corePath", getPropertiesString(autogen, "corePath"));
-        systemProperties.put("libPath", getPropertiesString(autogen, "libPath"));
-        systemProperties.put("testPath", getPropertiesString(autogen, "testPath"));
-        systemProperties.put("targetPath", getPropertiesString(autogen, "targetPath"));
-        systemProperties.put("rootPath", getPropertiesString(autogen, "rootPath"));
-        systemProperties.put("evosuitePath", getPropertiesString(autogen, "evosuitePath"));
-        systemProperties.put("humanTestPath", getPropertiesString(autogen, "humanTestPath"));
-        systemProperties.put("evosuiteTestPath", getPropertiesString(autogen, "evosuiteTestPath"));
-        systemProperties.put("GPTTestPath", getPropertiesString(autogen, "GPTTestPath"));
-        systemProperties.put("ChatGPTApi", getPropertiesString(autogen, "ChatGPTApi"));
+        for (String key : autogen.keySet()) {
+            systemProperties.put(key,getPropertiesString(autogen,key));
+        }
+//        systemProperties.put("originTestInputPath", getPropertiesString(autogen, "originTestInputPath"));
+//        systemProperties.put("programRootPath", getPropertiesString(autogen, "programRootPath"));
+//        systemProperties.put("corePath", getPropertiesString(autogen, "corePath"));
+//        systemProperties.put("libPath", getPropertiesString(autogen, "libPath"));
+//        systemProperties.put("testPath", getPropertiesString(autogen, "testPath"));
+//        systemProperties.put("targetPath", getPropertiesString(autogen, "targetPath"));
+//        systemProperties.put("rootPath", getPropertiesString(autogen, "rootPath"));
+//        systemProperties.put("evosuitePath", getPropertiesString(autogen, "evosuitePath"));
+//        systemProperties.put("humanTestPath", getPropertiesString(autogen, "humanTestPath"));
+//        systemProperties.put("evosuiteTestPath", getPropertiesString(autogen, "evosuiteTestPath"));
+//        systemProperties.put("GPTTestPath", getPropertiesString(autogen, "GPTTestPath"));
+//        systemProperties.put("ChatGPTApi", getPropertiesString(autogen, "ChatGPTApi"));
     }
 
 }

@@ -5,8 +5,6 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
-import mujava.MutationSystem;
-import mujava.MutationSystem.*;
 
 public class temp {
     public static void main(String[] args) {
