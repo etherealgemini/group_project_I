@@ -99,6 +99,8 @@ public class MainController {
 
         //4. 测试GPT结果
         Code evaluateResult = evaluationService.evaluateTestFromGPT(response);
+        //通过getMutationResults获取变异测试的结果，为HashMap的toString结果。
+        String result = evaluationService.getMutationResults();
 
 //        msg = prompting(readFile(testFiles[0].getAbsolutePath()), PromptType.REFINE_TEST);
 //        msg = prompting(readFile(?),PromptType.INITIAL_TEST_SUBMIT);
@@ -186,4 +188,12 @@ public class MainController {
 /*
 TODO: 1. 设计prompt确保gpt总是会返回一个完整的测试文件
 TODO: 2.
+ */
+
+/*
+这是mutation test返回的原始结果，会基本按照这种方式解析。
+>> Line Coverage (for mutated classes only): 109/125 (87%)
+>> Generated 83 mutations Killed 73 (88%)
+>> Mutations with no coverage 9. Test strength 99%
+>> Ran 78 tests (0.94 tests per mutation)
  */

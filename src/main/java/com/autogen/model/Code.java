@@ -14,6 +14,7 @@ public enum Code {
     WORSE_COVERAGE_METHOD(5004,"The method coverage is worse than threshold"),
     WORSE_COVERAGE_COMPLEXITY(5005,"The complexity coverage is worse than threshold"),
     WORSE_COVERAGE_MUTATION(5101,"The mutation rate is worse than threshold"),
+    WORSE_MUTATION_TEST_STRENGTH(5102,"The test strength is at least 20% worse than threshold")
 
     ;
 

@@ -24,6 +24,8 @@ import org.jacoco.core.runtime.RuntimeData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.autogen.utils.MiscUtils.cloneHashMap;
+
 
 /**
  * A single target class will be instrumented and executed. Finally the coverage information will be
@@ -273,15 +275,11 @@ public final class CoverageTester {
         return resultMap;
     }
 
-    public HashMap<String, Double> cloneResultMap() {
+    public Map<String, Double> cloneResultMap() {
         if(resultMap.isEmpty()){
             log.warn("The result dictionary is empty, may not execute yet!");
         }
-        HashMap<String, Double> newResultMap = new HashMap<>();
-        for(String k:resultMap.keySet()){
-            newResultMap.put(String.copyValueOf(k.toCharArray()), Double.valueOf(resultMap.get(k).toString()));
-        }
-        return newResultMap;
+        return cloneHashMap(resultMap);
     }
 
 

@@ -1,22 +1,24 @@
 package com.unfbx.autogen;
 
 import com.autogen.service.EvaluationService;
+import com.unfbx.chatgpt.entity.whisper.Transcriptions;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class EvaluationServiceTest {
 
-    private static ResourceBundle autogen;
-    private static HashMap<String,String> systemProperties;
+    private static HashMap<String,String> systemProperties = new HashMap<>();
     @Before
     public void init() {
-        autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
         GeneralTest.loadPathProperties(systemProperties);
         //1. 从资源文件读入各类路径
 //        autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
@@ -59,7 +61,29 @@ public class EvaluationServiceTest {
                 "}\r\n" +
                 "```";
 
-        EvaluationService controller = EvaluationService.getInstance(systemProperties);
-        System.out.println(controller.evaluateTestFromGPT(temp));
+        EvaluationService service = EvaluationService.getInstance(systemProperties);
+        System.out.println(service.evaluateTestFromGPT(temp));
+    }
+
+    @Test
+    public void mutationResultAnalysisTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Map<String,Double> map = new HashMap<>();
+        String[] result = {">> Line Coverage (for mutated classes only): 109/125 (87%)\n",
+                ">> Generated 83 mutations Killed 73 (88%)\n",
+                ">> Mutations with no coverage 9. Test strength 99%\n",
+                ">> Ran 78 tests (0.94 tests per mutation)\n"};
+        Class<?> cl = EvaluationService.class;
+        Method m = cl.getDeclaredMethod("mutationResultAnalyse",Map.class,String[].class);
+        m.setAccessible(true);
+        m.invoke(cl,map,result);
+
+        System.out.println(map);
+    }
+
+    @Test
+    public void mutationTest() throws Exception {
+        EvaluationService service = EvaluationService.getInstance(systemProperties);
+        service.evaluateTest(200);
+        System.out.println(service.);
     }
 }
