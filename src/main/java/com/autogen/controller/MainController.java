@@ -6,6 +6,7 @@ import com.autogen.service.ChatGPTService;
 import com.autogen.service.EvaluationService;
 import com.autogen.utils.MiscUtils;
 import com.autogen.utils.PromptType;
+import com.autogen.utils.PromptUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -81,7 +82,7 @@ public class MainController {
         ArrayList<String> responses = new ArrayList<>();
 
         //3.1 发送题目pdf
-        String msg = prompting(PDFContent, PromptType.PDF_SUBMIT);
+        String msg = PromptUtils.prompting(PDFContent, PromptType.PDF_SUBMIT);
         String response = chatGPTService.chat(msg, responses, respPointer);
 
         //3.2 发送测试
@@ -103,7 +104,7 @@ public class MainController {
             testContent = readFiles(testFiles);
         }
 
-        msg = prompting(String.valueOf(testContent),PromptType.OBTAIN_ONE_TEST_FROM_EVO);
+        msg = PromptUtils.prompting(String.valueOf(testContent), PromptType.OBTAIN_ONE_TEST_FROM_EVO);
 
         response = chatGPTService.chat(msg, responses, respPointer);
 
@@ -115,14 +116,15 @@ public class MainController {
         //5. 若满足输出条件，则10，否则7.
         boolean condition = evaluateResult.equals(Code.EVALUATION_PASS);
         while (!condition) {
-            //7. prompt（修正）
+            //7. prompt（修正）进入循环，如果评测结果不满足输出条件
             testFilePath = new File(systemProperties.get("GPTTestPath"));
             testFiles = Objects.requireNonNull(testFilePath.listFiles());
 
             //TODO: 给gpt生成的test进行prompt来进行修正。
             testContent = readFiles(testFiles);
 
-            msg = combineTestAndResult(String.valueOf(testContent),result);
+            msg = PromptUtils.combineTestAndResult(String.valueOf(testContent), result);
+
 
             response = chatGPTService.chat(msg, responses, respPointer);
 

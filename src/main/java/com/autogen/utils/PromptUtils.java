@@ -8,7 +8,7 @@ public class PromptUtils {
         //TODO: Complete the prompt.
         return testContent + result;
     }
-    public static String prompting(String raw, PromptType type){
+    public static String prompting(String raw, PromptType type){  //raw：原始文本
         String out = "";
         switch (type){
             case PDF_SUBMIT:{
@@ -16,22 +16,22 @@ public class PromptUtils {
                 break;
             }
             case INITIAL_TEST_SUBMIT: {
-                out = initialTestPrompt(raw);
+                out =  initialTestPrompt(raw)+"显示全部代码\n";
                 break;
             }
             case REFINE_TEST: {
-                out = refineTestPrompt(raw);
+                out =  refineTestPrompt(raw)+"显示全部代码\n";
                 break;
             }
             case OBTAIN_ONE_TEST_FROM_EVO:{
-                out = obtainOneTestFromEvo(raw);
+                out =  obtainOneTestFromEvo(raw)+"显示全部代码\n";
                 break;
             }
 
             default:
                 out = raw;
         }
-        return out;
+        return out; //存储最终提示消息的字符串
     }
 
     private static String obtainOneTestFromEvo(String raw) {
@@ -50,8 +50,10 @@ public class PromptUtils {
     }
 
     private static String refineTestPrompt(String raw) {
-        return "Below is the original unit test. Please refine or add new test cases to make it more complete, based on " +
-                "the former PDF content. You need to give a complete test code. Here are the original unit test code.'''Java\n"+raw +"\n'''";
+        return "Below is the  you have refined the test code of evosuite."+ "It still exists with some minor problems"+
+                "For example, it may not pass JaCoCO tests or encounter other issues"+
+                "I hope you can continue to complete it based on the content of the PDF and the aspects of shortcomings and deficiencies I have told you" +
+                " Here are the unit test code.'''Java\n"+raw +"\n'''";
     }
 
     private static String pdfPrompt(String pdfContent){
@@ -61,7 +63,9 @@ public class PromptUtils {
     }
 
     private static String initialTestPrompt(String testFileContent){
-        return "Below is the original unit test. Please refine or add new test cases to make it more complete, based on " +
+        return "Below is the  first time you have refined the test code of evosuite."+"It still exists with some minor problems"+
+                "For example, it may not pass JaCoCO tests or encounter other issues"+
+                "So please refine or add new test cases to make it more complete, based on " +
                 "the former PDF content. You need to give a complete test code. Here are the original unit test code.'''Java\n"+testFileContent +"\n'''";
     }
 }
