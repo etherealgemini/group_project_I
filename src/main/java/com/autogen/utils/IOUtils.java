@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -89,6 +90,25 @@ public class IOUtils {
             e.printStackTrace();
         }
         return content.toString();
+    }
+
+    public static HashMap<String,String> readFiles(File[] files) {
+        StringBuilder content = new StringBuilder();
+        HashMap<String,String> map = new HashMap<>();
+
+        for(File file:files){
+            try (BufferedReader reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = reader.readLine())!=null) {
+                    content.append(line).append("\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            map.put(file.getName(),content.toString());
+            content = new StringBuilder();
+        }
+        return map;
     }
 
     public static Code writeFile(String filePath, String content) {

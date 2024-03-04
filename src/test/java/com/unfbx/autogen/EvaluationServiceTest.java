@@ -84,6 +84,6 @@ public class EvaluationServiceTest {
     public void mutationTest() throws Exception {
         EvaluationService service = EvaluationService.getInstance(systemProperties);
         service.evaluateTest(200);
-        System.out.println(service.);
+        System.out.println(service.getMutationResults());
     }
 }

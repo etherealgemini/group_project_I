@@ -15,6 +15,7 @@ import static com.autogen.utils.CommandLineUtils.run_cmd;
 import static com.autogen.utils.CompileUtils.compile;
 import static com.autogen.utils.IOUtils.*;
 import static com.autogen.utils.PDFParser.parsePDFtoString;
+import static com.autogen.utils.PromptUtils.combineTestAndResult;
 import static com.autogen.utils.PromptUtils.prompting;
 
 /**
@@ -97,44 +98,51 @@ public class MainController {
         File testFilePath = new File(systemProperties.get("evosuiteTestPath"));
         File[] testFiles = testFilePath.listFiles();
 
+        HashMap<String,String> testContent = null;
+        if (testFiles != null) {
+            testContent = readFiles(testFiles);
+        }
+
+        msg = prompting(String.valueOf(testContent),PromptType.OBTAIN_ONE_TEST_FROM_EVO);
+
+        response = chatGPTService.chat(msg, responses, respPointer);
+
         //4. 测试GPT结果
         Code evaluateResult = evaluationService.evaluateTestFromGPT(response);
         //通过getMutationResults获取变异测试的结果，为HashMap的toString结果。
         String result = evaluationService.getMutationResults();
-
-//        msg = prompting(readFile(testFiles[0].getAbsolutePath()), PromptType.REFINE_TEST);
-//        msg = prompting(readFile(?),PromptType.INITIAL_TEST_SUBMIT);
-
-        response = chatGPTService.chat(msg, responses, respPointer);
-
-        
 
         //5. 若满足输出条件，则10，否则7.
         boolean condition = evaluateResult.equals(Code.EVALUATION_PASS);
         while (!condition) {
             //7. prompt（修正）
             testFilePath = new File(systemProperties.get("GPTTestPath"));
-            File testFile = Objects.requireNonNull(testFilePath.listFiles())[0];
+            testFiles = Objects.requireNonNull(testFilePath.listFiles());
+
             //TODO: 给gpt生成的test进行prompt来进行修正。
-//            msg = prompting(testContent, PromptType.REFINE_TEST);
+            testContent = readFiles(testFiles);
+
+            msg = combineTestAndResult(String.valueOf(testContent),result);
+
+            response = chatGPTService.chat(msg, responses, respPointer);
 
             //8. evaluation
             evaluateResult = evaluationService.evaluateTestFromGPT(response);
-
-            response = chatGPTService.chat(msg, responses, respPointer);
+            result = evaluationService.getMutationResults();
 
             //9. 重复7-8，直到满足输出条件
             condition = evaluateResult.equals(Code.EVALUATION_PASS);
         }
 
         //10. output and cleanup
+        System.out.printf("Finish generation. Please check the test files at %s\n",systemProperties.get("testPath"));
         System.out.println("-----------------------------------------------");
         System.out.println();
     }
 
     /**
-     * 这个方法适用于某错误是不可容忍的情况。
-     * 当err为真时，抛出运行时异常。
+     * 这个方法适用于检查某不可容忍的错误发生的情况。
+     * 当err为真时，抛出**运行时异常**。
      * @param err
      *      Error flag.
      * @throws RuntimeException

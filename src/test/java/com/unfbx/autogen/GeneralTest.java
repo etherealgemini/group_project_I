@@ -4,6 +4,7 @@ import com.autogen.service.CoverageTester;
 import com.autogen.service.EvaluationService;
 import com.autogen.utils.FileUtils;
 import com.autogen.utils.IOUtils;
+import com.autogen.utils.PromptType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,7 @@ import static com.autogen.utils.FileUtils.loadJarFiles;
 import static com.autogen.utils.IOUtils.*;
 import static com.autogen.utils.IOUtils.getPropertiesString;
 import static com.autogen.utils.PDFParser.parsePDFtoString;
+import static com.autogen.utils.PromptUtils.prompting;
 
 public class GeneralTest {
     private static ResourceBundle autogen;
@@ -155,7 +157,11 @@ public class GeneralTest {
         tester.execute(systemProperties,systemProperties.get("evosuiteTestPath"));
     }
 
-
+    @Test
+    public void promptTest2(){
+        File file = new File(systemProperties.get("evosuiteTestPath"));
+        System.out.println(prompting(String.valueOf(readFiles(file.listFiles())), PromptType.OBTAIN_ONE_TEST_FROM_EVO));
+    }
 
     public static HashMap<String,String> loadPathProperties(HashMap<String,String> systemProperties) {
         autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());

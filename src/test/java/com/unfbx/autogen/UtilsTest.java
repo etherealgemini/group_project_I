@@ -27,11 +27,6 @@ public class UtilsTest {
     }
 
     @Test
-    public void strToDoubleTest(){
-
-    }
-
-    @Test
     public void cloneHashMapTest(){
         HashMap<String,Double> a = new HashMap<>();
         a.put("a",1.1);
