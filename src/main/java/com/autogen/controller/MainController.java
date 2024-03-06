@@ -28,10 +28,10 @@ import static com.autogen.utils.PromptUtils.prompting;
 @Slf4j
 public class MainController {
 
-    private ResourceBundle autogen;
-    private ChatGPTService chatGPTService;
-    private HashMap<String, String> systemProperties;
-    private EvaluationService evaluationService;
+    private static ResourceBundle autogen;
+    private static HashMap<String, String> systemProperties;
+    private static EvaluationService evaluationService;
+    private final Scanner scanner = new Scanner(System.in);
 
     /**
      * 启动系统。
@@ -42,6 +42,11 @@ public class MainController {
         System.out.println(FancyOutput.SYSTEM_LAUNCH.getStr());
         System.out.println("AutoGen is launched at: " + MiscUtils.getNow());
 
+        ChatGPTService chatGPTService = ChatGPTService.getInstance(); // 不需要暴露系统配置的话，systemProperties就不必给他了
+        System.out.println("Please enter your ChatGPT api key:");
+        chatGPTService.initializeChatService(scanner.next());
+
+        System.out.println("CharGPT service initialization success!");
         //1. 读入资源文件
         systemProperties = new HashMap<>();
         autogen = ResourceBundle.getBundle("autogen", Locale.getDefault());
@@ -53,46 +58,43 @@ public class MainController {
                 systemProperties.get("targetPath"), systemProperties.get("programRootPath"));
         CHECKERR(err);
         err = compile(systemProperties.get("programRootPath"), systemProperties.get("libPath"),
-                systemProperties.get("humanTestPath"), systemProperties.get("humanTestInputPath"));
+                systemProperties.get("humanTestPath"), systemProperties.get("originTestInputPath"));
         CHECKERR(err);
 
         //2.2 pdf转string
         String PDFContent = parsePDFtoString(getPropertiesString(autogen, "pdfInputPath"));
 
         //2.3 后台运行Evosuite，生成测试、编译，并进行评测（耗时操作）
-        Thread evo = new Thread(this::runEvosuite);
+//        Thread evo = new Thread(this::runEvosuite);
 
         //2.4 后台进行人工测试评测，结果将作为Baseline（耗时操作）
         evaluationService =
                 EvaluationService.getInstance(systemProperties); //传入系统配置
 
-        new Thread(() -> {
-            try {
-                evaluationService.evaluateTest(101);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }).start();
-
-        //3. prompt（第一次输入）
-        chatGPTService = ChatGPTService.getInstance(); // 不需要暴露系统配置的话，systemProperties就不必给他了
-        chatGPTService.initializeChatService(systemProperties.get("ChatGPTApi"));
+        try {
+            evaluationService.evaluateTest(201);
+        }catch (Exception e){
+            log.error(e.getMessage(),e);
+        }
 
         ArrayList<Integer> respPointer = new ArrayList<>();
         ArrayList<String> responses = new ArrayList<>();
 
         //3.1 发送题目pdf
-        String msg = PromptUtils.prompting(PDFContent, PromptType.PDF_SUBMIT);
-        String response = chatGPTService.chat(msg, responses, respPointer);
+        String msg = "";
+        String response = "";
+
+        msg = PromptUtils.prompting(PDFContent, PromptType.PDF_SUBMIT);
+        chatGPTService.chat(msg, responses, respPointer);
 
         //3.2 发送测试
         //等待evosuite子线程完成。
-        try {
-            evo.join();
-        } catch (InterruptedException e) {
-            log.error("evosuite子线程被异常中断", e);
-            return;
-        }
+//        try {
+//            evo.join();
+//        } catch (InterruptedException e) {
+//            log.error("evosuite子线程被异常中断", e);
+//            return;
+//        }
 
 //        while(evo.isAlive()){}
         //TODO: 这里有来自Evosuite的一系列的，针对不同class的测试文件，需要进行合适的prompt来指导GPT生成测试。
@@ -125,7 +127,6 @@ public class MainController {
 
             msg = PromptUtils.combineTestAndResult(String.valueOf(testContent), result);
 
-
             response = chatGPTService.chat(msg, responses, respPointer);
 
             //8. evaluation
@@ -137,6 +138,7 @@ public class MainController {
         }
 
         //10. output and cleanup
+        chatGPTService.close();
         System.out.printf("Finish generation. Please check the test files at %s\n",systemProperties.get("testPath"));
         System.out.println("-----------------------------------------------");
         System.out.println();

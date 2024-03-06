@@ -23,7 +23,7 @@ import static com.autogen.utils.MiscUtils.*;
 @Slf4j
 public class EvaluationService {
     private static Map<String,Double> coverageThresholds;
-    private static Map<String,Double> mutationResults;
+    private static final Map<String,Double> mutationResults = new HashMap<>();
     private static Map<String,Double> mutationThresholds;
 
     //    /**
@@ -37,9 +37,9 @@ public class EvaluationService {
 //    private static String rootPath;
 //    private static String libPath;
 //    private static String programRootPath;
-
-    private static HashMap<String,String> systemProperties;
     private final static EvaluationService EVALUATION_SERVICE = new EvaluationService();
+    private static HashMap<String,String> systemProperties;
+
 
     // ******************
     // Mutation test indicators
@@ -53,7 +53,9 @@ public class EvaluationService {
     // ******************
 
 
-    private EvaluationService(){}
+    private EvaluationService(){
+
+    }
     public static EvaluationService getInstance(){
         return EVALUATION_SERVICE;
     }
@@ -168,8 +170,8 @@ public class EvaluationService {
             case 202:
                 //coverage test gpt
                 log.info("Running mutation test on test files at {}, the target file are at {}",
-                        systemProperties.get("GPTTestPath"),systemProperties.get("targetPath"));
-                evaluateTestMutation(systemProperties, systemProperties.get("GPTTestPath"));
+                        systemProperties.get("testPath"),systemProperties.get("targetPath"));
+                evaluateTestMutation(systemProperties, systemProperties.get("testPath"));
                 log.info("The test result is: {}",mutationResults);
                 break;
             default:
@@ -255,7 +257,6 @@ public class EvaluationService {
 
 //        tempErrReport.deleteOnExit();
 //        tempStdReport.deleteOnExit();
-
         mutationResultAnalyse(mutationResults, result);
     }
 

@@ -105,15 +105,41 @@ public class CompileUtils {
         StringBuilder s = new StringBuilder();
         List<String> list = new ArrayList<>();
         list.add("-cp");
-        if (p.exists()&&p.isDirectory()){
-            File[] jars = p.listFiles(((dir,name) -> name.endsWith(".jar")));
-            if(jars==null){
-                return list;
+
+        Deque<File> stack = new ArrayDeque<>();
+        if(p.exists()){
+            File[] files = p.listFiles();
+            for(File file:files){
+                if(file.isDirectory()){
+                    stack.push(file);
+                }
+                else{
+                    s.append(";").append(file.getAbsolutePath());
+                }
             }
-            for (File jar : jars) {
-                s.append(";").append(jar.getAbsolutePath());
+            while(!stack.isEmpty()){
+                File fa = stack.pop();
+                File[] fa_ = fa.listFiles();
+                for (File sub:fa_){
+                    if(sub.isDirectory()){
+                        stack.push(sub);
+                    }
+                    else if(sub.getName().endsWith(".jar")){
+                        s.append(";").append(sub.getAbsolutePath());
+                    }
+                }
             }
         }
+
+//        if (p.exists()&&p.isDirectory()){
+//            File[] jars = p.listFiles(((dir,name) -> name.endsWith(".jar")));
+//            if(jars==null){
+//                return list;
+//            }
+//            for (File jar : jars) {
+//                s.append(";").append(jar.getAbsolutePath());
+//            }
+//        }
         paths.forEach(path -> s.append(";").append(path));
         s.append(";.;");
         list.add(s.toString());

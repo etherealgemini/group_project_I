@@ -4,5 +4,6 @@ public class AutoTestGeneratorClient {
     public static void main(String[] args) {
         MainController controller = new MainController();
         controller.launch();
+//        test.main(args);
     }
 }

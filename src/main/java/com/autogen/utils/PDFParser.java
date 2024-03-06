@@ -1,6 +1,7 @@
 package com.autogen.utils;
 
 import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
+import org.apache.pdfbox.io.ScratchFile;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 public class PDFParser {
 
     public static String parsePDFtoString(String filePath){
-        String result = null;
+        String result;
         FileInputStream is = null;
         PDDocument document = null;
         try {
