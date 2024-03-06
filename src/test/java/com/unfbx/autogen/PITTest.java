@@ -41,7 +41,8 @@ public class PITTest {
 
     @Test
     public void PITCMDTest() throws Exception {
-        EvaluationService.getInstance(systemProperties).evaluateTest(201);
+        EvaluationService service = EvaluationService.getInstance(systemProperties);
+        service.evaluateTest(202);
     }
 
 

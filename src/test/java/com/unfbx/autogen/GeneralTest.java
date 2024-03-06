@@ -1,5 +1,6 @@
 package com.unfbx.autogen;
 
+import com.autogen.service.ChatGPTService;
 import com.autogen.service.CoverageTester;
 import com.autogen.service.EvaluationService;
 import com.autogen.utils.FileUtils;
@@ -10,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -36,6 +38,7 @@ public class GeneralTest {
     private static String evoPath;
     private static String humanTestPath;
     private static String evosuiteTestPath;
+    private static ChatGPTService chatService;
     private static HashMap<String,String> systemProperties = new HashMap<>();
 //    private static EvaluationService evaluationService =
 //            EvaluationService.getInstance(programRootPath,targetPath,testPath,rootPath,libPath);
@@ -45,6 +48,8 @@ public class GeneralTest {
     @Before
     public void init() {
         loadPathProperties(systemProperties);
+        chatService = ChatGPTService.getInstance();
+        chatService.initializeChatService("sk-OdN7wImvIqpGaU8OcwbLsrH2IlGbYMzLeOBMsxYmy7qXp5Vz");
     }
 
     @Test
@@ -69,7 +74,6 @@ public class GeneralTest {
     @Test
     public void cmdTest2() {
         //1. 读入资源文件
-
 
         String cmdOrigin = readFile("data\\core\\evo_script_raw.bat");
         cmdOrigin = cmdOrigin.replace("EVOSUITE_PATH", evoPath);
@@ -109,7 +113,7 @@ public class GeneralTest {
     }
 
     @Test
-    public void evoCtest2() throws Exception {
+    public void evoCtest2() {
         System.out.println(readFile(new File(humanTestInputPath).listFiles()[0].getAbsolutePath()));
 //        evaluationService.evaluateTest(0,targetPath,testPath);
     }
@@ -158,9 +162,37 @@ public class GeneralTest {
     }
 
     @Test
+    public void promptTest1(){
+        String PDFContent = parsePDFtoString(getPropertiesString(autogen, "pdfInputPath"));
+        System.out.println(prompting(PDFContent,PromptType.PDF_SUBMIT));
+    }
+
+    @Test
     public void promptTest2(){
         File file = new File(systemProperties.get("evosuiteTestPath"));
         System.out.println(prompting(String.valueOf(readFiles(file.listFiles())), PromptType.OBTAIN_ONE_TEST_FROM_EVO));
+    }
+
+    @Test
+    public void compileAndExecuteTest2() throws Exception {
+        compile(systemProperties.get("rootPath"),systemProperties.get("libPath"),
+                systemProperties.get("testPath"),systemProperties.get("GPTTestPath"));
+
+        HashMap result = new HashMap();
+        evaluationService.evaluateTest(202);
+    }
+
+    @Test
+    public void mainTest1() throws InterruptedException, IOException {
+        String PDFContent = parsePDFtoString(getPropertiesString(autogen, "pdfInputPath"));
+        System.out.println(PDFContent.length());
+
+
+        ArrayList<String> resp = new ArrayList<>();
+        ArrayList<Integer> pt = new ArrayList<>();
+
+        chatService.chat(PDFContent,resp,pt);
+//        service.chat(PDFContent,resp,pt);
     }
 
     public static HashMap<String,String> loadPathProperties(HashMap<String,String> systemProperties) {

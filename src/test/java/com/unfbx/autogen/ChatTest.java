@@ -11,8 +11,10 @@ public class ChatTest {
 
     @Test
     public void chatTest1(){
+
         ChatGPTService service = ChatGPTService.getInstance();
         service.initializeChatService("sk-OdN7wImvIqpGaU8OcwbLsrH2IlGbYMzLeOBMsxYmy7qXp5Vz");
+        System.out.println(service.chat("你好",new ArrayList<>(),new ArrayList<>()));
         System.out.println(service.chat("你好",new ArrayList<>(),new ArrayList<>()));
     }
     @Test
