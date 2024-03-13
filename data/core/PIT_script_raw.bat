@@ -15,6 +15,6 @@ cd -q PIT_LIB
 
 java -version
 
-java -cp PIT_LIB;TARGET_PATH;TEST_PATH; org.pitest.mutationtest.commandline.MutationCoverageReport --reportDir REPORT_DIR --sourceDirs SRC_DIR --targetClasses TARGETS --mutableCodePaths TARGET_PATH --targetTests TESTS --outputEncoding UTF-8
+java -cp PIT_LIB;TARGET_PATH;TEST_PATH; org.pitest.mutationtest.commandline.MutationCoverageReport --reportDir REPORT_DIR --sourceDirs SRC_DIR --targetClasses TARGETS --mutableCodePaths TARGET_PATH --targetTests TESTS --outputEncoding UTF-8 --verbose
 
 echo done
