@@ -175,7 +175,10 @@ public class GeneralTest {
 
     @Test
     public void compileAndExecuteTest2() throws Exception {
-        compile(systemProperties.get("rootPath"),systemProperties.get("libPath"),
+        compile(systemProperties.get("programRootPath"),systemProperties.get("libPath"),
+                systemProperties.get("targetPath"),systemProperties.get("programRootPath"));
+
+        compile(systemProperties.get("targetPath"),systemProperties.get("libPath"),
                 systemProperties.get("testPath"),systemProperties.get("GPTTestPath"));
 
         HashMap result = new HashMap();
