@@ -41,3 +41,5 @@ data/core/evo_script.bat
 src/test/java/misc/
 data/PITReport/
 log/RollingFileAppender.log
+
+evosuite-report/
