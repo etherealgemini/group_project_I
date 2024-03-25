@@ -35,11 +35,13 @@ build/
 /unfbx_0xBA5D895F_SECRET.gpg
 # log/RollingFileAppender.log
 
-data/evosuite-tests/
-data/temp/
+/data/evosuite-tests/
+/data/temp/
 data/core/evo_script.bat
-src/test/java/misc/
-data/PITReport/
+/src/test/java/misc/
+/data/PITReport/
 log/RollingFileAppender.log
+/data/targets/
+/data/tests/
+/evosuite-report/
 
-evosuite-report/
