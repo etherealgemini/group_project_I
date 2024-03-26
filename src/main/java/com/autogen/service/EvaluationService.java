@@ -10,9 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.autogen.utils.CommandLineUtils.run_cmd;
 import static com.autogen.utils.FileUtils.getClassesFiles;
@@ -47,6 +45,7 @@ public class EvaluationService {
     private static final String MU_GEN = "Mutations generated";
     private static final String MU_KILL = "Mutations killed";
     private static final String MU_COVER = "Mutations coverage rate";
+    private static final String MU_KILL_RATE = "Mutations killed rate";
     private static final String TOT_TEST = "total tests";
     private static final String TEST_STRENGTH = "Test strength";
     private static final double TEST_STRENGTH_DELTA = 0.2;
@@ -160,13 +159,14 @@ public class EvaluationService {
 
                 log.info("The baseline is: {}",mutationThresholds);
                 break;
-            case 201:
-                //coverage test evosuite
-                log.info("Running mutation test on test files at {}, the target file are at {}",
-                        systemProperties.get("testPath"),systemProperties.get("targetPath"));
-                evaluateTestMutation(systemProperties, systemProperties.get("testPath"));
-                log.info("The test result is: {}",mutationResults);
-                break;
+//            case 201:
+//                //coverage test evosuite
+//                log.info("Running mutation test on test files at {}, the target file are at {}",
+//                        systemProperties.get("testPath"),systemProperties.get("targetPath"));
+//
+//                evaluateTestMutation(systemProperties, systemProperties.get("testPath"));
+//                log.info("The test result is: {}",mutationResults);
+//                break;
             case 202:
                 //coverage test gpt
                 log.info("Running mutation test on test files at {}, the target file are at {}",
@@ -185,6 +185,7 @@ public class EvaluationService {
      * @param testPath
      */
     private void evaluateTestMutation(HashMap<String,String> systemProperties,String testPath) throws IOException {
+
         String cmdOrigin = readFile("data\\core\\PIT_script_raw.bat");
         cmdOrigin = cmdOrigin.replace("TEST_PATH", testPath);
         cmdOrigin = cmdOrigin.replace("TARGET_PATH", systemProperties.get("targetPath"));
@@ -282,7 +283,8 @@ public class EvaluationService {
         ArrayList<String> temp = findNum(result[1]);
         map.put(MU_GEN, Double.parseDouble(temp.get(0)));
         map.put(MU_KILL,Double.parseDouble(temp.get(1)));
-        map.put(MU_COVER,Double.parseDouble(temp.get(2))/100d);
+        map.put(MU_COVER,1 - Double.parseDouble(findNum(result[2]).get(0))/Double.parseDouble(temp.get(0)));
+        map.put(MU_KILL_RATE, Double.parseDouble(temp.get(1))/Double.parseDouble(temp.get(0)));
 
         temp = findNum(result[2]);
         map.put(TEST_STRENGTH,Double.parseDouble(temp.get(1))/100d);

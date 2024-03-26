@@ -164,6 +164,7 @@ public class FileUtils {
      *      If false, only the files under the directory will be deleted.
      */
     public static void cleanUp(String path,boolean all) {
+        log.info("Delete files under {}",path);
        File file = new File(path);
        if(file.isFile()){
            file.delete();

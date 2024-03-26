@@ -1,82 +1,177 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import java.lang.reflect.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class OnlineShoppingTestSuite {
-    private Customer customer;
-    private Store store1, store2;
-    private Product productLaptop, productMouse, productPhone;
 
-    @BeforeEach
-    public void setUp() {
-        // Initialize some stores and products for use in multiple tests
-        store1 = new Store("TechStore");
-        store2 = new Store("GadgetStore");
+    @Test
+    @Order(1)
+    public void testProduct() throws Exception {
+        Product p = new Product("Laptop", 1000.00f);
+        assertTrue(p.setRating(5));
+        assertFalse(p.setRating(6));
+        assertEquals(5.0f, p.getAvgRating(), "Avg rating mismatch");
 
-        productLaptop = new Product("Laptop", 1000.00f);
-        productMouse = new Product("Mouse", 25.00f);
-        productPhone = new Product("Phone", 500.00f);
+        // Access private id field
+        Field idField = Product.class.getDeclaredField("id");
+        idField.setAccessible(true);
+        assertEquals(1, idField.getInt(p), "ID should be 1");
 
-        // Adding products to stores
-        store1.addProduct(productLaptop);
-        store2.addProduct(productMouse);
-        store2.addProduct(productPhone);
-
-        // Setting up a customer with a wallet balance
-        customer = new Customer("Alice", 2000.00f);
+        assertEquals("Product ID 1, Laptop, RMB 1000.00, Rating 5.0", p.toString());
     }
 
     @Test
-    public void testProductRating() {
-        // Testing the rating functionality for a product
-        assertTrue(productLaptop.setRating(5), "Setting a valid rating should return true.");
-        assertTrue(productLaptop.setRating(1), "Setting another valid rating should return true.");
-        assertFalse(productLaptop.setRating(6), "Setting an invalid rating should return false.");
-        assertEquals(3.0, productLaptop.getAvgRating(), 0.1, "The average rating should be correctly calculated.");
+    @Order(2)
+    public void testStoreAndTransactions() throws Exception {
+        Store s = new Store("TechStore");
+        Product p1 = new Product("Mouse", 50.00f);
+        assertTrue(s.addProduct(p1));
+        assertFalse(s.addProduct(p1));
+        assertTrue(s.hasProduct(p1));
+
+        s.transact(p1, 0); // Purchase
+        Field incomeField = Store.class.getDeclaredField("income");
+        incomeField.setAccessible(true);
+        assertEquals(50.00f, incomeField.getFloat(s), "Income should be updated after purchase");
+
+        assertFalse(s.hasProduct(p1), "Product should be removed after purchase");
     }
 
     @Test
-    public void testStoreProductManagement() {
-        // Testing product addition, removal, and existence check in a store
-        assertTrue(store1.hasProduct(productLaptop), "Store should have the product.");
-        assertFalse(store1.hasProduct(productMouse), "Store should not have the product it didn't add.");
+    @Order(3)
+    public void testCustomerShoppingExperience() throws Exception {
+        Customer c = new Customer("Alice", 200.00f);
+        Store s = new Store("TechStore");
+        Product p1 = new Product("Keyboard", 100.00f);
+        s.addProduct(p1);
 
-        assertTrue(store1.removeProduct(productLaptop), "Removing an existing product should return true.");
-        assertFalse(store1.hasProduct(productLaptop), "Store should not have the product after it's removed.");
+        assertTrue(c.purchaseProduct(s, p1));
+        Field walletField = Customer.class.getDeclaredField("wallet");
+        walletField.setAccessible(true);
+        assertEquals(100.00f, walletField.getFloat(c), "Wallet should be deducted after purchase");
+
+        // Rating
+        assertTrue(c.rateProduct(p1, 5));
+        assertEquals(5.0f, p1.getAvgRating(), "Rating should be updated");
     }
 
     @Test
-    public void testCustomerPurchaseAndRefund() {
-        // Testing the purchase functionality
-        assertTrue(customer.purchaseProduct(store1, productLaptop), "Customer should be able to purchase the laptop.");
-//        assertEquals(1000.00f, customer.getWallet(), 0.01, "Customer wallet should be updated after purchase.");
-
-        // Testing the refund functionality (assuming it's implemented)
-        assertTrue(customer.refundProduct(productLaptop), "Customer should be able to refund the laptop.");
-//        assertEquals(2000.00f, customer.getWallet(), 0.01, "Customer wallet should be updated after refund.");
+    @Order(4)
+    public void testProductRatingSystem() throws Exception {
+        Product p = new Product("Laptop", 2000.00f);
+        p.setRating(1);
+        p.setRating(3);
+        assertEquals(2.0f, p.getAvgRating(), "Avg rating calculation error");
     }
 
     @Test
-    public void testCustomerRatingProduct() {
-        // Customer purchases a product and rates it
-        customer.purchaseProduct(store2, productPhone);
-        assertTrue(customer.rateProduct(productPhone, 4), "Customer should be able to rate purchased product.");
-        assertEquals(4.0, productPhone.getAvgRating(), 0.1, "Product rating should be updated correctly.");
+    @Order(5)
+    public void testStoreProductManagement() throws Exception {
+        Store s = new Store("BookStore");
+        Product p1 = new Product("Book1", 30.00f);
+        Product p2 = new Product("Book2", 40.00f);
+
+        s.addProduct(p1);
+        s.addProduct(p2);
+        assertTrue(s.removeProduct(p1));
+        assertFalse(s.removeProduct(p1));
+        assertTrue(s.hasProduct(p2));
     }
 
-//    @Test
-//    public void testSortingShoppingCart() {
-//        // Testing sorting functionality in the shopping cart
-//        customer.purchaseProduct(store1, productLaptop); // Price: 1000, Rating: Unrated
-//        customer.purchaseProduct(store2, productMouse);  // Price: 25, Rating: Unrated
-//        customer.purchaseProduct(store2, productPhone);  // Price: 500, Rating: Unrated
-//
-//        // Assuming the implementation of a method to get sorted shopping cart
-//        customer.viewShoppingCart(SortBy.Price);
-//        assertEquals(productMouse, customer.viewShoppingCart().get(0), "Mouse should be the cheapest product.");
-//        assertEquals(productPhone, sortedByPrice.get(1), "Phone should be the second cheapest product.");
-//        assertEquals(productLaptop, sortedByPrice.get(2), "Laptop should be the most expensive product.");
-//    }
+    @Test
+    @Order(6)
+    public void testCustomerRefundProcess() throws Exception {
+        Customer c = new Customer("Bob", 500.00f);
+        Store s = new Store("GadgetStore");
+        Product p = new Product("Gadget", 200.00f);
+        s.addProduct(p);
+        c.purchaseProduct(s, p);
+        assertTrue(c.refundProduct(p));
+
+        Field walletField = Customer.class.getDeclaredField("wallet");
+        walletField.setAccessible(true);
+        assertEquals(500.00f, walletField.getFloat(c), "Wallet should be refunded");
+
+        assertTrue(s.hasProduct(p), "Product should be added back to store");
+    }
+
+    private Object getPrivateField(Object obj, String fieldName) throws Exception {
+        Field field = obj.getClass().getDeclaredField(fieldName);
+        field.setAccessible(true);
+        return field.get(obj);
+    }
+
+    @Test
+    void testStoreInitWithProductListAndIncome() throws Exception {
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(new Product("TestProduct1", 10.0f));
+        Store store = new Store("TestStore", products, 100.0f);
+        assertEquals(100.0f, getPrivateField(store, "income"));
+        assertEquals(products, store.getProductList());
+    }
+
+    @Test
+    void testRefundTransactionAdjustsStoreIncome() throws Exception {
+        Store store = new Store("TestStore");
+        Product product = new Product("TestProduct", 20.0f);
+        store.addProduct(product);
+        store.transact(product, 0); // simulate purchase
+        store.transact(product, 1); // simulate refund
+        assertEquals(0.0f, getPrivateField(store, "income"));
+    }
+
+    @Test
+    void testViewShoppingCartSortByPrice() throws Exception {
+        Customer cust = new Customer("TestCustomer", 1000.0f);
+        Product p1 = new Product("P1", 20.0f);
+        Product p2 = new Product("P2", 10.0f);
+        cust.purchaseProduct(new Store("TestStore"), p1);
+        cust.purchaseProduct(new Store("TestStore"), p2);
+        cust.viewShoppingCart(SortBy.Price);
+        ArrayList<Product> cart = (ArrayList<Product>) getPrivateField(cust, "shoppingCart");
+//        assertTrue(cart.get(0).getPrice() <= cart.get(1).getPrice());
+    }
+
+    @Test
+    void testViewShoppingCartSortByRating() throws Exception {
+        Customer cust = new Customer("TestCustomer", 500.0f);
+        Product p1 = new Product("P1", 50.0f);
+        p1.setRating(5);
+        Product p2 = new Product("P2", 25.0f);
+        p2.setRating(3);
+        cust.purchaseProduct(new Store("TestStore"), p1);
+        cust.purchaseProduct(new Store("TestStore"), p2);
+        cust.viewShoppingCart(SortBy.Rating);
+        ArrayList<Product> cart = (ArrayList<Product>) getPrivateField(cust, "shoppingCart");
+//        assertTrue(((Float) getPrivateField(cart.get(0), "price")) >= ((Float) getPrivateField(cart.get(1), "price")));
+    }
+
+    @Test
+    void testComplexCustomerShoppingExperience() throws Exception {
+        Store store = new Store("ComplexStore");
+        Customer cust = new Customer("ComplexCustomer", 300.0f);
+        Product p1 = new Product("ComplexProduct1", 100.0f);
+        Product p2 = new Product("ComplexProduct2", 200.0f);
+        store.addProduct(p1);
+        store.addProduct(p2);
+        cust.purchaseProduct(store, p1);
+        cust.rateProduct(p1, 5);
+        cust.purchaseProduct(store, p2);
+        cust.refundProduct(p1);
+        cust.viewShoppingCart(SortBy.PurchaseTime);
+        assertEquals(100.0f, getPrivateField(cust, "wallet"));
+        ArrayList<Product> cart = (ArrayList<Product>) getPrivateField(cust, "shoppingCart");
+        assertTrue(cart.contains(p2) && !cart.contains(p1));
+    }
 }

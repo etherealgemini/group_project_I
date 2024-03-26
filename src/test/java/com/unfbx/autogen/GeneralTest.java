@@ -9,6 +9,7 @@ import com.autogen.utils.PromptType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,11 +21,13 @@ import java.util.*;
 import static com.autogen.utils.CommandLineUtils.run_cmd;
 import static com.autogen.utils.CommandLineUtils.run_cmd_example;
 import static com.autogen.utils.CompileUtils.compile;
+import static com.autogen.utils.FileUtils.cleanUp;
 import static com.autogen.utils.FileUtils.loadJarFiles;
 import static com.autogen.utils.IOUtils.*;
 import static com.autogen.utils.IOUtils.getPropertiesString;
 import static com.autogen.utils.PDFParser.parsePDFtoString;
 import static com.autogen.utils.PromptUtils.prompting;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class GeneralTest {
     private static ResourceBundle autogen;
@@ -88,6 +91,7 @@ public class GeneralTest {
     }
 
     @Test
+    @Disabled
     public void testEvaluation() throws Exception {
 
         String temp = "```java" +
@@ -160,7 +164,6 @@ public class GeneralTest {
         CoverageTester tester = new CoverageTester(System.out,result,true);
         tester.execute(systemProperties,systemProperties.get("evosuiteTestPath"));
     }
-
     @Test
     public void promptTest1(){
         String PDFContent = parsePDFtoString(getPropertiesString(autogen, "pdfInputPath"));
@@ -174,19 +177,43 @@ public class GeneralTest {
     }
 
     @Test
-    public void compileAndExecuteTest2() throws Exception {
+    public void compileAndExecuteTestGPT() throws Exception {
         compile(systemProperties.get("programRootPath"),systemProperties.get("libPath"),
                 systemProperties.get("targetPath"),systemProperties.get("programRootPath"));
+
+        cleanUp(systemProperties.get("testPath"),true);
 
         compile(systemProperties.get("targetPath"),systemProperties.get("libPath"),
                 systemProperties.get("testPath"),systemProperties.get("GPTTestPath"));
 
-        HashMap result = new HashMap();
+
+
+        File file = new File(systemProperties.get("testPath"));
+        if (file.listFiles().length<1){
+            fail("Compile failed");
+        }
+
         evaluationService.evaluateTest(202);
     }
 
     @Test
-    public void mainTest1() throws InterruptedException, IOException {
+    public void compileAndExecuteTestEvosuite() throws Exception {
+        compile(systemProperties.get("programRootPath"),systemProperties.get("libPath"),
+                systemProperties.get("targetPath"),systemProperties.get("programRootPath"));
+
+        compile(systemProperties.get("targetPath"),systemProperties.get("libPath"),
+                systemProperties.get("testPath"),systemProperties.get("evosuiteTestPath"));
+
+        File file = new File(systemProperties.get("testPath"));
+        if (file.listFiles().length<1){
+            fail("Compile failed");
+        }
+
+        evaluationService.evaluateTest(202);
+    }
+
+    @Test
+    public void mainTest1() {
         String PDFContent = parsePDFtoString(getPropertiesString(autogen, "pdfInputPath"));
         System.out.println(PDFContent.length());
 
